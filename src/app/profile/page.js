@@ -37,19 +37,17 @@ const Page = () => {
   const handleCloseBlog = () => setShowBlog(false);
   const handleShowBlog = () => setShowBlog(true);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/api/posts");
-        const data = await response.json();
-        setPosts(data);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
+  fetchPosts();
 
-    fetchPosts();
-  }, []);
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/posts");
+      const data = await response.json();
+      setPosts(data);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  };
 
   const deletedata = async (id) => {
     try {
