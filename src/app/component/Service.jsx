@@ -9,12 +9,11 @@ import botulinum from "../../asserts/Botulinum.webp";
 import stroke from "../../asserts/Stroke.webp";
 import nmsod from "../../asserts/NMOSD.webp";
 import Myasthenia from "../../asserts/Myasthenia.webp";
-import multiple from "../../asserts/multiple.webp";
+import wheelchair from "../../asserts/wheelchair.webp";
 import meningitis from "../../asserts/Meningitis.webp";
 import { Modal } from "react-bootstrap";
 import Appoittement from "./Appoittement";
 import "../styles/text.css"
-
 const Service = () => {
 
   const [show, setShow] = useState(false);
@@ -212,7 +211,7 @@ const Service = () => {
               <div className="row g-0">
                 <div className="col-md-4">
                   <Image
-                    src={multiple}
+                    src={wheelchair}
                     className="card_service_img"
                     alt="..."
                   />
