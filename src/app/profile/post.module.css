@@ -1,0 +1,64 @@
+.headingcard{
+    box-shadow: 0 8px 24px 15px rgba(0, 0, 0, 0.15) !important;
+    width:100%;
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+
+.blogheading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.blogbutton{
+    float: inline-end;
+    background-color: #FFF;
+    color: #27b9ec;
+    border: 1px solid #27b9ec;
+    border-radius: 12px;
+    padding: 8px 10px !important;
+    font-size: 14px;
+}
+.blogbutton:hover{
+    color: #FFF;
+    background-color:#27b9ec ;
+}
+
+.recentblogbox{
+    display: flex;
+    border-radius: 12px;
+    margin-top: 5%;
+}
+.recentblog{
+    box-shadow: 0 8px 24px 15px rgba(0, 0, 0, 0.15) !important;
+    width:100%;
+    border-radius: 12px;
+    padding: 5px;
+}
+.recentblogimg{
+    width: 150px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px; 
+}
+
+
+
+.text_container {
+    max-height: calc(1.2em * 2); /* Adjust the line height and number of lines as needed */
+    overflow: hidden;
+    text-align: justify;
+    color: #595960;
+    text-overflow: ellipsis; /* Optionally add ellipsis for visually indicating truncated text */
+    line-height: 1.1em; /* Adjust line height as needed */
+  }
+
+ 
+    .userInput{
+        padding: 10px 8px;
+        border-radius: 10px;
+        margin: 10px;
+        width: 90%;
+    }
+    
