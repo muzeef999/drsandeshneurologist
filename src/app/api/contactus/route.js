@@ -2,10 +2,6 @@ import { mailOptions, transporter } from "@/utils/nodemailer";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request) {
-  if (request.method !== "POST") {
-    return NextResponse.error("Method Not Allowed", { status: 405 });
-  }
-
   const reqBody = await request.json();
   const { name, email, phone, message, subject } = reqBody;
 
