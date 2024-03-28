@@ -17,7 +17,6 @@ import Link from 'next/link'
 
 
 const Page = () => {
-  
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -29,8 +28,7 @@ const Page = () => {
   const [posts, setPosts] = useState([]);
 
 
-  
-
+  useEffect(() => {
     const fetchBlog = async () => {
       try {
         const response = await axios.get(
@@ -43,7 +41,7 @@ const Page = () => {
     };
 
     fetchBlog();
-  
+  }, []); 
 
   const createtologin = () => {
     router.push("/profile");
