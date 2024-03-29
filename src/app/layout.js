@@ -10,6 +10,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { useSession, SessionProvider } from "next-auth/react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import "react-quill/dist/quill.snow.css";
+import Head from "next/head";
 
 export default function RootLayout({ children }) {
   return (

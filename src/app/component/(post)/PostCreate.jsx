@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useSession } from 'next-auth/react';
 import axios from 'axios';
@@ -15,10 +15,13 @@ const PostCreate = () => {
   const router = useRouter(); // Initialize useRouter
   const [file, setFile] = useState();
   const [progress, setProgress] = useState(0);
+  const [post, setPost] = useState({
+    content: "",
+    img: " ",
+    username: session?.user?.email // Access user email safely
+  });
 
-
-
-  function getFile(event) {
+  const getFile = (event) => {
     const uploadedFile = event.target.files[0];
   
     // Check if a file was uploaded
@@ -51,20 +54,11 @@ const PostCreate = () => {
     }
   }
   
-  
-
-  const [post, setPost] = React.useState({
-    content: "",
-    img: " ",
-    username: session.user.email
-  });
-
   const postSubmit = async (e) => {
     e.preventDefault(); 
     setLoading(true);
 
     try {
-    
       const response = await axios.post("http://localhost:3000/api/posts", post, {
         onUploadProgress: progressEvent => {
           const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
@@ -72,8 +66,8 @@ const PostCreate = () => {
         }
       });
 
-        toast.success('🦄 blocked created');
-        router.push("/blogs");
+      toast.success('🦄 block created');
+      router.push("/blogs");
       
     } catch (error) {
       console.error("Post failed", error);
@@ -87,19 +81,17 @@ const PostCreate = () => {
   return (
     <div>
       <div>
-        
-        
-       <br/>
-         <input type='file' className='fileUpload' accept='image/*' onChange={getFile} required></input>
-         <br/>
-         <br/>
-          <img src={file} className='imageupload'  />
         <br/>
-         <br/>
+        <input type='file' className='fileUpload' accept='image/*' onChange={getFile} required></input>
+        <br/>
+        <br/>
+        <img src={file} className='imageupload'  />
+        <br/>
+        <br/>
         <ReactQuill theme='snow' className='blogcontent' value={post.content} onChange={(content) => setPost({ ...post, content })}/>
 
         <br/>
-        {loading && <span value={progress} >{progress}%</span>}
+        {loading && <span value={progress}>{progress}%</span>}
         <button onClick={postSubmit} className='form-button'>{loading ? `Processing : ${progress}%` : "submit"}</button>
       </div>
     </div>

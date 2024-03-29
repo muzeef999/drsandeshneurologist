@@ -4,7 +4,7 @@ import Service from "./component/Service";
 import Doctor from "../asserts/doctor.png";
 import Experience from "./component/Experience";
 import Qulification from "./component/Qulification";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./styles/text.css";
@@ -14,6 +14,7 @@ import ContactUs from "./component/ContactUs";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Appoittement from "./component/Appoittement";
+import Head from "next/head";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,11 +35,17 @@ export default function Home() {
               Compassionate Care for Your Brain Health
             </h4>
             <p className="main-p">
-              Welcome to Dr Sandesh Nanisetty, Where We Specialize in Diagnosing
-              and Treating a Wide Range of Neurological Conditions. With a Focus
-              on Personalized Care and Cutting-edge Treatments, Our Team is
-              Dedicated to Helping You Achieve Optimal Brain Health and Quality
-              of Life.
+              Dr. Sandesh Nanisetty excels in identifying and managing a wide
+              array of neurological disorders such as epilepsy, stroke,
+              migraines, vertigo, multiple sclerosis, Parkinson's disease,
+              diabetic neuropathy, and issues related to the cervical and lumbar
+              spine, among others. He has a particular expertise in providing
+              Botox injections for the treatment of dystonia, spasticity, and
+              other neurological conditions, emphasizing meticulous attention to
+              detail and superior patient care. Dr. Nanisetty's approach is
+              centered on delivering personalized care and leveraging the latest
+              in medical advancements, underscoring his commitment to enhancing
+              patients' brain health and overall quality of life.
             </p>
             <br />
             <button onClick={handleShow}>Book An Appointment</button>

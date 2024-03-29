@@ -1,45 +1,57 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React from 'react';
 import { Col, Row } from 'react-bootstrap';
+import axios from 'axios'; // Import Axios
+import useSWR from 'swr';
+
+
+
+  // Function to fetch data
+  const fetchBlog = async (url) => {
+    try {
+      const response = await axios.get(url); // Use Axios for fetching
+      return response.data; // Return response data
+    }catch (error) {
+      console.error("Error fetching data:", error);
+    throw error;
+    }
+  };
+
 
 const Page = ({ params }) => {
+  // Extract postId from params
+  const { id: postId } = params;
 
-    const blogId = params.id;
-    const [blog, setBlogDetails] = useState(null);
-    
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:3000/api/posts/${blogId}`
-        );
-        const data = await response.json();
-        setBlogDetails(data);
-      } catch (error) {
-        console.error("Error fetching product:", error);
-      }
-    };
 
-    fetchProduct();
-  }, [blogId]);
+  // Fetch data using useSWR
+  const { data: blog, error } = useSWR(
+    postId ? `http://localhost:3000/api/posts/${postId}` : null,
+    fetchBlog,
+    {
+      revalidateOnFocus: false // Disable revalidation on focus for now
+    }
+  );
+
+  if (error) {
+    return <div>Error fetching data...</div>;
+  }
 
   if (!blog) {
-    return <div>Loading.....................</div>; // Render a loading indicator while product is null
+    return <div>Loading...</div>; // Render a loading indicator while data is being fetched
   }
+
   return (
     <div className='container'>
       <Row>
         <Col md={8}>
-        <img src={blog.img} alt="blog image"  width={"100%"}/>
-      <br/>
-      <div dangerouslySetInnerHTML={{ __html: blog.content }} />
-
+          <img src={blog.img} alt="blog image" width={"100%"} />
+          <br />
+          <div dangerouslySetInnerHTML={{ __html: blog.content }} />
         </Col>
         <Col md={4}></Col>
       </Row>
-     
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

@@ -1,11 +1,15 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
 import Slider from "react-slick";
+import useSWR from "swr";
+
+const fetcher = (url) => axios.get(url).then((res) => res.data);
 
 const Blogs = () => {
 
-  const [posts, setPosts] = useState([]);
+  const { data: posts, error } = useSWR("http://localhost:3000/api/posts", fetcher);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -43,20 +47,6 @@ const Blogs = () => {
     ],
   };
 
-  useEffect(() => {
-    const fetchBlog = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:3000/api/posts"
-        );
-        setPosts(response.data);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
-
-    fetchBlog();
-  }, []);
 
 
   function truncateContent(content) {
@@ -68,43 +58,40 @@ const Blogs = () => {
     return sentences.slice(0, 4).join('.....');
 }
 
+if (error) return <div>Error loading posts!</div>;
+if (!posts) return <div>Loading...</div>;
+
   return (
     <div className="container">
-      <br />
-      <br />
-      <div className="service-head">Recent Blogs</div>
-      <br />
-      <Slider {...settings}> 
-  {posts.map((item) => {
-  
-    return (
-      <div className="cardBlog" key={item.id}>
-        <img
-          className="imgblog"
-          src={item.img}
-          alt="doctor"
-          width={100}
-          height={100}
-        />{" "}
-      
-      <div style={{ fontSize:'15px',   }}>
-  {/* Render the first heading separately */}
-  {item.content && (
-    <>
-      <>
-           {/* Display only the first four sentences of the content */}
-      <div dangerouslySetInnerHTML={{ __html: truncateContent(item.content) }} />
-    </>
-    </>
-  )}
-</div>
-      </div>
-    );
-  })}
-</Slider>
-
-    </div>
-  );
+    <br />
+    <br />
+    <div className="service-head">Recent Blogs</div>
+    <br />
+    {posts && posts.length > 0 ? (
+      <Slider {...settings}>
+        {posts.map((item) => (
+          <div className="cardBlog" key={item._id}>
+            <img
+              className="imgblog"
+              src={item.img}
+              alt="doctor"
+              width={100}
+              height={100}
+            />
+            <div style={{ fontSize: "15px" }}>
+              {item.content && (
+                <>
+                  <div dangerouslySetInnerHTML={{ __html: truncateContent(item.content) }} />
+                </>
+              )}
+            </div>
+          </div>
+        ))}
+      </Slider>
+    ) : (
+      <div>No posts found.</div>
+    )}
+  </div>
+);
 };
-
 export default Blogs;
