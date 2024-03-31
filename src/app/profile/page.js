@@ -1,12 +1,9 @@
-'use client';
-
+"use client";
 import axios from "axios";
-import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
-import { useRouter } from "next/router"; // Correct import
+import { useRouter } from "next/navigation"; // Correct import
 import React, { useState } from "react";
 import style from "@/app/profile/post.module.css";
-import Image from "next/image";
 import { MdAdd } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
@@ -14,13 +11,18 @@ import "../styles/text.css";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from "react-bootstrap/Modal";
-import PostCreate from "../component/(post)/PostCreate";
-import UpdateBlog from "../component/UpdateBlog";
+import dynamic from "next/dynamic";
+
+const PostCreate = dynamic(() => import("../component/(post)/PostCreate"), {
+  ssr: false,
+});
+const UpdateBlog = dynamic(() => import("@/app/component/UpdateBlog"), {
+  ssr: false,
+});
+
 import useSWR from "swr";
 
-const fetcher = (url) => axios.get(url).then((res) => res.data);
-
-const Page = ({ posts }) => {
+const Page = () => {
   const router = useRouter();
   const [show, setShow] = useState(false);
   const [showBlog, setShowBlog] = useState(false);
@@ -35,7 +37,11 @@ const Page = ({ posts }) => {
   const handleCloseBlog = () => setShowBlog(false);
   const handleShowBlog = () => setShowBlog(true);
 
-  const { data: updatedPosts, mutate } = useSWR("/api/posts", fetcher);
+  // Import useSWR dynamically to use it only on the client-side
+  const { data: updatedPosts, mutate } = useSWR("/api/posts", async () => {
+    const res = await axios.get("/api/posts");
+    return res.data;
+  });
 
   const deleteData = async (id) => {
     try {
@@ -68,8 +74,8 @@ const Page = ({ posts }) => {
       <br />
       <div className="container">
         <div id="gridc">
-          {posts &&
-            posts.map((post) => (
+          {updatedPosts &&
+            updatedPosts.map((post) => (
               <div key={post._id}>
                 <div className="cardBlog" key={post._id}>
                   <img
@@ -128,21 +134,4 @@ const Page = ({ posts }) => {
   );
 };
 
-export async function getServerSideProps() {
-  try {
-    const res = await fetch("http://localhost:3000/api/posts");
-    const posts = await res.json();
-    return {
-      props: {
-        posts,
-      },
-    };
-  } catch (error) {
-    console.error("Error fetching posts:", error);
-    return {
-      props: {
-        posts: [],
-      },
-    };
-  }
-}
+export default Page;

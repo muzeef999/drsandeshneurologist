@@ -265,6 +265,18 @@ ul li {
   left: 0;
 }
 
+.loading-container {
+  background-color: #FFF !important;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* Ensure the loader appears above other content */
+}
+
+.sweet-loading {
+  text-align: center; /* Center the loading spinner horizontally */
+}
 
 
 

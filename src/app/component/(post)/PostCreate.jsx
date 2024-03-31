@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useSession } from 'next-auth/react';
@@ -59,7 +60,7 @@ const PostCreate = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:3000/api/posts", post, {
+      const response = await axios.post("/api/posts", post, {
         onUploadProgress: progressEvent => {
           const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
           setProgress(percentCompleted);

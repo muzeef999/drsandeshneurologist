@@ -8,14 +8,19 @@ const Appoittement = () => {
 
   const [name, setName]=useState(" ");
   const [number, setNumber]=useState(" ");
-  const [age,setAge]= useState(" ");
-  const [dob, setDOB] = useState(" ");
   const [message, setMessage] = useState(" ");
+  const [radiotext, setRadio] = useState(" ");
 
-  const ACCESS_TOKEN = 'EAAU9dqi5jOQBO2RG9KkWcBSzMXqJ8vpb5Kw6acPtaducR33o3tg0Jv4C0Da536wyGHZBh8PrCTEs3XcokTWRYHW2W6W24dEyJIYdve6LsTYhvYWA4DdnZA8zoN0NG6ZAVRpEMeErUKisFZAmnsco7yVR6tZCw1fJFylZCOASWBCBZA0khbBhdnZBmC6KI8RcjGMTn1SiheS75UCBZAnHiZAQEZD';
+  const ACCESS_TOKEN = "EAAU9dqi5jOQBO4iCoD0b7gWw52ViZCnZAIWEC86UyQZAEXSvyeq0MhQnRT7ms5ZAKqjFQSU1vDXqPfkSYlYVCfNKtk6UBZBFNiATEZAs2i9NwUL6NqY7vAXx7dGiWtJnesGwcbn3itCRgV8spVfGgSJPwSoFFCUIwLNCFqfv4mXAtEz3BIwoNZCDNAAm2S881ahehFxQ80TTZAuVAQzxTN4ZD";
+
+  const handleRadioChange = (event) => {
+    setRadio(event.target.value); // Update the radiotext state with the selected value
+  };
 
   const onSubmit = async () => {
     try {
+
+      console.log(name, number, message, radiotext)
 
       const payload = {
         messaging_product: "whatsapp",
@@ -30,6 +35,7 @@ const Appoittement = () => {
 
    
       const response = await axios.post("https://graph.facebook.com/v18.0/209988965541805/messages", payload, {
+
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${ACCESS_TOKEN}` 
@@ -61,34 +67,32 @@ const Appoittement = () => {
   <label>Enter Number</label>
 </div>
 <br/>
-<div className='row'>
-    <div className='col'>
-    <div className="input-field">
-  <input type="text" required value={age} onChange={(e) => setAge(e.target.value)} spellCheck="false" />
-  <label>Enter Age</label>
-</div>
-    </div>
-    <div className='col'>
-    <div className="input-field">
-  <input type="Date" required value={dob} onChange={(e) => setDOB(e.target.value)} spellCheck="false" />
-  <label></label>
-</div>
-    </div>
-</div>
-<br/>
 <div className="input-field">
   <textarea type="text" required value={message} onChange={(e) => setMessage(e.target.value)} spellCheck="false" rows="4" cols="50"></textarea>
   <label>Enter Message</label>
 </div>
  <br/>
-<div>
-              <input type="radio"  />
-              <label for="huey">ARETE hospitals, Gachibowli, Hyderabad... 9 am to 5 pm</label>           
-                <div>
-                <input type="radio"/>
-                <label for="dewey">Freedom hospital, Gandipet, Hyderabad... 6.30 pm to 8.30 pm</label>
-                </div>
-              </div>
+ <div className='d-flex align-items-start'>
+        <input
+          type="radio"
+          name="hospital"
+          value="ARETE hospitals"
+          checked={radiotext === "ARETE hospitals"} // Add this line to make the radio button checked if radiotext matches
+          onChange={handleRadioChange} // Call handleRadioChange function when radio button is changed
+        />
+        <label className='d-flex justify-content-center'> &nbsp;ARETE hospitals, Gachibowli, Hyderabad... 9 am to 5 pm</label>
+      </div>
+      <div className='d-flex  align-items-start'>
+        <input
+          type="radio"
+          name="hospital"
+          value="Freedom hospital"
+          checked={radiotext === "Freedom hospital"} // Add this line to make the radio button checked if radiotext matches
+          onChange={handleRadioChange} // Call handleRadioChange function when radio button is changed
+        />
+        <label> &nbsp;Freedom hospital, Gandipet, Hyderabad... 6.30 pm to 8.30 pm</label>
+      </div>
+
 <br/>
 <button className='form-button'>Submit</button>
 </form>

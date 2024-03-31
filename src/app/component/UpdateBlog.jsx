@@ -7,50 +7,49 @@ import 'react-quill/dist/quill.snow.css';
 import "@/app/styles/text.css"
 
 const UpdateBlog = ({ postId }) => {
-
+  // Get the user session from next-auth/react
   const { data: session } = useSession();
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState();
 
+  // Initialize the post state with the session user's email
   const [post, setPost] = React.useState({
     file: "",
     newContent: " ",
     username: session.user.email
   });
 
+  // Handle file selection
   const getFile = (event) => {
     const uploadedFile = event.target.files[0];
 
-    // Check if a file was uploaded
     if (uploadedFile) {
       setFile(uploadedFile);
     }
   };
 
-
-  
+  // Handle updating the post with new content and file
   const handleUpdate = async () => {
     setLoading(true);
 
-    try {    
+    try {
+      // Send a PUT request to update the post with the new content and file
       const response = await axios.put(`http://localhost:3000/api/posts/${postId}`, post);
 
       if (response.status === 200) {
         console.log('Post updated successfully');
         console.log(response)
-        // Handle success, e.g., show a success message or redirect to another page
       } else {
         console.error('Failed to update post');
-        // Handle error, e.g., show an error message to the user
       }
     } catch (error) {
       console.error('Error updating post:', error);
-      // Handle error, e.g., show an error message to the user
     } finally {
       setLoading(false);
     }
   };
 
+  // Render the component
   return (
     <div>
       <h2>{postId}</h2>

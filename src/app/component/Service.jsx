@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 import Image from "next/image";
 import Alzhemers from "../../asserts/Alzheimer.webp";
 import Eplicy from "../../asserts/Epilepsy.webp";
@@ -14,21 +14,66 @@ import meningitis from "../../asserts/Meningitis.webp";
 import { Modal } from "react-bootstrap";
 import Appoittement from "./Appoittement";
 import "../styles/text.css"
+import gsap from 'gsap';
+
+import SplitText from 'split-type'
+
+
 const Service = () => {
 
+  const textRef = useRef(null);
+  const repeatCount = 3;
+ 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+
+  useEffect(() => {
+    if (!textRef.current) return;
+
+    const tl = gsap.timeline();
+
+    const split = new SplitText(textRef.current, { type: "chars" });
+
+    split.chars.forEach((obj, i) => {
+      let txt = obj.innerText;
+      let clone = `<div class="cloneText"> ${txt} </div>`;
+      let newHTML = `<div class="originalText"> ${txt} </div>${clone}`;
+      obj.innerHTML = newHTML;
+      gsap.set(obj.childNodes[1], {
+        yPercent: i % 2 === 0 ? -100 : 100
+      });
+      let tween = gsap.to(obj.childNodes, {
+        repeat: repeatCount, // You need to define repeatCount
+        ease: "none",
+        yPercent: i % 2 === 0 ? "+=100" : "-=100"
+      });
+      tl.add(tween, 0);
+    });
+
+    gsap.to(tl, { progress: 1, duration: 4, ease: "power4.inOut" });
+
+    // Clean up function
+    return () => {
+      // Ensure proper cleanup to avoid memory leaks or unexpected behavior
+      split.revert();
+      gsap.killTweensOf(tl);
+    };
+  }, []);
+
   return (
     <div>
       <div className="container ">
-        <br />
-        <br />
-        <h1 className="service_head">
+      <div className="stage">
+      <h1 ref={textRef} className="service_head" style={{ whiteSpace: "nowrap",  }}>
           Focus Services And Treatment
         </h1>
+    </div>
+        <br />
+      
+        
         <br />
         <br />
         <div className="row d-flex justify-content-center align-items-center">

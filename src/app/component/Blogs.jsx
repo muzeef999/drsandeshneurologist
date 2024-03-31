@@ -1,14 +1,16 @@
-"use client";
+// Add this line at the top of your file
+'use client';
+
 import React from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import useSWR from "swr";
+import Loading from "./Loading";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
 const Blogs = () => {
-
-  const { data: posts, error } = useSWR("http://localhost:3000/api/posts", fetcher);
+  const { data: posts, error } = useSWR("/api/posts", fetcher);
 
   const settings = {
     dots: true,
@@ -47,8 +49,6 @@ const Blogs = () => {
     ],
   };
 
-
-
   function truncateContent(content) {
     // Remove <br> tags from content
     const contentWithoutBr = content.replace(/<br\s*\/?>/gi, '');
@@ -56,42 +56,45 @@ const Blogs = () => {
     const sentences = contentWithoutBr.split(/(?<=[.?!])\s+/);
     // Return the first four sentences joined together
     return sentences.slice(0, 4).join('.....');
-}
+  }
 
-if (error) return <div>Error loading posts!</div>;
-if (!posts) return <div>Loading...</div>;
+  if (error) return <div>Error loading posts!</div>;
+  if (!posts) return <div><Loading/></div>;
 
   return (
     <div className="container">
-    <br />
-    <br />
-    <div className="service-head">Recent Blogs</div>
-    <br />
-    {posts && posts.length > 0 ? (
-      <Slider {...settings}>
-        {posts.map((item) => (
-          <div className="cardBlog" key={item._id}>
-            <img
-              className="imgblog"
-              src={item.img}
-              alt="doctor"
-              width={100}
-              height={100}
-            />
-            <div style={{ fontSize: "15px" }}>
-              {item.content && (
-                <>
-                  <div dangerouslySetInnerHTML={{ __html: truncateContent(item.content) }} />
-                </>
-              )}
+      <br />
+      <br />
+      <div className="service-head">Recent Blogs</div>
+      <br />
+      {posts && posts.length > 0 ? (
+        <Slider {...settings}>
+          {posts.map((item) => (
+            <div className="cardBlog" key={item._id}>
+              <img
+                className="imgblog"
+                src={item.img}
+                alt="doctor"
+                width={100}
+                height={100}
+              />
+              <div style={{ fontSize: "15px" }}>
+                {item.content && (
+                  <>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: truncateContent(item.content) }}
+                    />
+                  </>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
-    ) : (
-      <div>No posts found.</div>
-    )}
-  </div>
-);
+          ))}
+        </Slider>
+      ) : (
+        <div>No posts found.</div>
+      )}
+    </div>
+  );
 };
+
 export default Blogs;

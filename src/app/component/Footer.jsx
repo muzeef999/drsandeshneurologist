@@ -22,11 +22,7 @@ const Footer = () => {
             <h4>Dr Sandesh Nanisetty</h4>
             <div>
               <p>
-                Dr Sandesh Nanisetty commitment to advancing his knowledge is
-                underscored by certifications in Dementia from NHS, England, and
-                MRCP (Neurology) from the UK. Dr Nanisetty has extensive
-                experience, having served as an Assistant Professor at NIMS and
-                a Senior Resident in Neurology. 
+              Dr Sandesh Nanisetty commitment to advancing his knowledge is underscored by certifications in Dementia from NHS, England, and MRCP (Neurology) from the UK. Dr Nanisetty has extensive experience, having served as an Assistant Professor at NIMS and a Senior Resident in Neurology.
               </p>
             </div>
           </div>

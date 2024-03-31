@@ -1,13 +1,13 @@
 .main-head{
     font-weight: 800;
     color: #030136;
-    font-size: clamp(30px, 3vw, 45px);
+    font-size: clamp(23px, 3vw, 60px);
     /* font-size: 45px;  */
     letter-spacing: 3px;
 }
 .main-desc {
     color: #5C5757;
-    font-size: clamp(22px, 2.6vw, 30px);
+    font-size: clamp(17px, 2.6vw, 34px);
     line-height: 185.5%;
 }
 .main-p{
@@ -192,6 +192,14 @@
     background: #FFF;
   }
 
+  input[type=radio] {
+    border: 1px solid #27b9ec !important;
+    color: #27b9ec !important;
+    background-color: #27b9ec !important;
+    width: 18px;
+    height: 18px;
+}
+
   .form-button{
     width: 100%;
     padding: 12px 14px;
@@ -216,6 +224,22 @@
     padding: 0px 14px;
   }
 
+  .stage {
+    display: flex;
+    flex-direction: column;
+    color: #030136;
+  }
+
+  h1 > div {
+    overflow: hidden;
+  }
+  
+  .cloneText {
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+  
 
   #gridc {
     top:0;

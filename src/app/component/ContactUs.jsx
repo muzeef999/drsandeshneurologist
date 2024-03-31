@@ -17,7 +17,7 @@ const ContactUs = () => {
     e.preventDefault()
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:3000/api/contactus", {
+      const response = await axios.post("/api/contactus", {
         name,
         email,
         phone,

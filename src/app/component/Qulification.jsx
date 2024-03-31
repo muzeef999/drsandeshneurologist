@@ -38,14 +38,12 @@ const Qulification = () => {
         >
           <div>
             <p className="qualifactionp">
-              Dr sandesh nanisetty is a highly skilled and dedicated consultant
-              in neurology, currently serving at arete hospitals. With a
-              distinguished educational background, he attained his mbbs from
-              jawaharlal nehru medical college, kle university. Dr sandesh
-              nanisetty further pursued and excelled in his medical journey with
-              dnb in general medicine from st theresa's hospital, followed by
-              mnams in general medicine and dm in neurology from nizam's
-              institute of medical sciences (nims).
+
+           
+Dr Sandesh Nanisetty is a highly skilled and dedicated Consultant in Neurology, currently serving at Arete Hospitals, Gachibowli and Freedom Hospital, Gandipet. With a distinguished educational background, he attained his MBBS from Jawaharlal Nehru Medical College, KLE University. Dr Sandesh Nanisetty further pursued and excelled in his medical journey with DNB in General Medicine from St Theresa’s Hospital, followed by MNAMS in General Medicine and DM in Neurology from Nizam’s Institute of Medical Sciences (NIMS). 
+<br/>
+Dr Sandesh Nanisetty commitment to advancing his knowledge is underscored by certifications in Dementia from NHS, England, and MRCP (Neurology) from the UK. Dr Nanisetty has extensive experience, having served as an Assistant Professor at NIMS and a Senior Resident in Neurology.
+           
             </p>
             <br />
             <h1 className="q-text" style={{ textAlign: "center" }}>

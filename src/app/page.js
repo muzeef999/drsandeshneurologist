@@ -15,6 +15,9 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Appoittement from "./component/Appoittement";
 import Head from "next/head";
+import Video from "./component/InstagramVideo";
+import InstagramVideo from "./component/InstagramVideo";
+import Loading from "./component/Loading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,7 +37,7 @@ export default function Home() {
             <h4 className="main-desc">
               Compassionate Care for Your Brain Health
             </h4>
-            <p className="main-p">
+            <p className="main-p" style={{ textAlign: "justify" }}>
               Dr. Sandesh Nanisetty excels in identifying and managing a wide
               array of neurological disorders such as epilepsy, stroke,
               migraines, vertigo, multiple sclerosis, Parkinson's disease,
@@ -86,6 +89,10 @@ export default function Home() {
       </div>
 
       <Blogs />
+      <br />
+      <br />
+      <InstagramVideo />
+      <br />
       <br />
       <ContactUs />
 
