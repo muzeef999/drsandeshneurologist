@@ -28,13 +28,10 @@ const Page = () => {
   const handleShow = () => setShow(true);
 
   // Fetch posts using SWR
-  const { data: posts, error } = useSWR(
-    "http://localhost:3000/api/posts",
-    async (url) => {
-      const response = await axios.get(url);
-      return response.data;
-    }
-  );
+  const { data: posts, error } = useSWR("/api/posts", async (url) => {
+    const response = await axios.get(url);
+    return response.data;
+  });
 
   const createtologin = () => {
     router.push("/profile");
