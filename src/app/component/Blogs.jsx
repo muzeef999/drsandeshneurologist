@@ -59,7 +59,7 @@ const Blogs = () => {
   }
 
   if (error) return <div>Error loading posts!</div>;
-  if (!posts) return <div><Loading/></div>;
+  if (!posts) return <div>Loading.....</div>;
 
   return (
     <div className="container">
@@ -81,7 +81,7 @@ const Blogs = () => {
               <div style={{ fontSize: "15px" }}>
                 {item.content && (
                   <>
-                    <div
+                    <div 
                       dangerouslySetInnerHTML={{ __html: truncateContent(item.content) }}
                     />
                   </>

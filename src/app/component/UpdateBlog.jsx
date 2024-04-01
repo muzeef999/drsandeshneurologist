@@ -1,66 +1,91 @@
-"use client"
+import { useEffect, useState } from 'react'; 
 import { useSession } from 'next-auth/react';
-import React, { useState } from 'react';
 import axios from 'axios';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import "@/app/styles/text.css"
+import "@/app/styles/text.css";
+import { toast } from 'react-toastify';
 
 const UpdateBlog = ({ postId }) => {
-  // Get the user session from next-auth/react
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState();
-
-  // Initialize the post state with the session user's email
-  const [post, setPost] = React.useState({
+  const [post, setPost] = useState({
     file: "",
-    newContent: " ",
-    username: session.user.email
+    newContent: "",
+    username: ""
   });
 
-  // Handle file selection
+  useEffect(() => {
+    if (status === "authenticated") {
+      setPost(prevState => ({ ...prevState, username: session.user.email }));
+    }
+  }, [status, session]);
+
+  useEffect(() => {
+    const fetchPostDetails = async () => {
+      try {
+        const response = await axios.get(`/api/posts/${postId}`);
+        if (response.status === 200) {
+          const postData = response.data; // Assuming response.data is already JSON
+          setPost({
+            ...post,
+            newContent: postData.content,
+            file: postData.img
+          });
+        
+        } else {
+          console.error('Failed to fetch post details');
+        }
+      } catch (error) {
+        console.error('Error fetching post details:', error);
+      }
+    };
+    fetchPostDetails();
+  }, [postId]);
+
+
   const getFile = (event) => {
     const uploadedFile = event.target.files[0];
-
     if (uploadedFile) {
       setFile(uploadedFile);
+      // Clear the image URL in post state when a new file is selected
+      setPost(prevState => ({ ...prevState, file: URL.createObjectURL(uploadedFile) }));
     }
   };
 
-  // Handle updating the post with new content and file
   const handleUpdate = async () => {
     setLoading(true);
-
     try {
-      // Send a PUT request to update the post with the new content and file
-      const response = await axios.put(`http://localhost:3000/api/posts/${postId}`, post);
+      
+
+
+      const response = await axios.put(`/api/posts/${postId}`, post);
+
+      window.location.href = "/profile";
 
       if (response.status === 200) {
-        console.log('Post updated successfully');
-        console.log(response)
+        toast.success('Post updated successfully');
+        console.log(response);
       } else {
-        console.error('Failed to update post');
+        toast.error('Failed to update post');
       }
     } catch (error) {
-      console.error('Error updating post:', error);
+      toast.error('Error updating post:', error);
     } finally {
       setLoading(false);
     }
   };
 
-  // Render the component
   return (
     <div>
-      <h2>{postId}</h2>
       <input type='file' className='fileUpload' accept='image/*' onChange={getFile} required></input>
       <br/>
       <br/>
-      <img className='imageupload' src={file ? URL.createObjectURL(file) : ''}  alt="Selected Image" />
+      {post.file && <img className='imageupload' src={post.file} alt="Selected Image" />}
       <br/>
       <br/>
       <ReactQuill theme='snow' className='blogcontent' value={post.newContent} onChange={(newContent) => setPost({ ...post, newContent })} />
-
       <br/>
       <button className='form-button' onClick={handleUpdate} disabled={loading}>
         {loading ? 'Updating...' : 'Update Post'}

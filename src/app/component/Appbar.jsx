@@ -1,34 +1,28 @@
-"use client";
+"use client"
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
-import { PiLockKeyThin } from "react-icons/pi";
-import { PiLockKeyOpenThin } from "react-icons/pi";
-import { PiUserCircleThin } from "react-icons/pi";
+import { PiLockKeyThin, PiLockKeyOpenThin, PiUserCircleThin } from "react-icons/pi";
 import { Modal } from "react-bootstrap";
 import Login from "./Login";
 import { toast } from "react-toastify";
 
-
 const Appbar = () => {
-
   const { data: session, status } = useSession();
-
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleLogout = async () => {
-
     try {
-       toast.success("Logout Succesfully")
+      await signOut(); // Use signOut provided by NextAuth
+      toast.success("Logout Successfully");
       window.location.href = "/";
-    }catch (error) {
+    } catch (error) {
       console.error("Failed to sign out:", error);
     }
-    
   };
 
   return (
@@ -80,31 +74,41 @@ const Appbar = () => {
                     Services
                   </Link>
                 </p>
-               
                 <p data-bs-dismiss="offcanvas">
                   <Link href="/contactus" className="link">
                     Contact Us
                   </Link>
                 </p>
               </div>
-              <div style={{border:'3px solid #27b9ec', borderRadius:'22px', backgroundColor:'#27b9ec'}}>
-              {status === "authenticated" ? (
-                   <div className="d-flex justify-content-center align-items-center">
-                    <Link href="/profile" className="d-flex justify-content-center align-items-center" style={{color:'#FFF', textDecoration:'none'}}> <>&nbsp; <PiUserCircleThin fontSize={25}/>&nbsp;</> <>{session.user.name}&nbsp;</></Link>
-                    <button onClick={handleLogout} className="d-flex justify-content-center align-items-center"> <PiLockKeyThin/><>&nbsp; Logout</></button>
-                    </div>
+              <div style={{ border: "3px solid #27b9ec", borderRadius: "22px", backgroundColor: "#27b9ec" }}>
+                {status === "authenticated" ? (
+                  <div className="d-flex justify-content-center align-items-center">
+                    <Link href="/profile" className="d-flex justify-content-center align-items-center" style={{ color: "#FFF", textDecoration: "none" }}>
+                      {" "}
+                      <>&nbsp; <PiUserCircleThin fontSize={25} />&nbsp;</>{" "}
+                      <>{session.user.name}&nbsp;</>
+                    </Link>
+                    <button onClick={handleLogout} className="d-flex justify-content-center align-items-center">
+                      {" "}
+                      <PiLockKeyThin />
+                      <>&nbsp; Logout</>
+                    </button>
+                  </div>
                 ) : (
-                  <button  onClick={handleShow} className="d-flex justify-content-center align-items-center"><PiLockKeyOpenThin /><>&nbsp;Admin</></button>
+                  <button onClick={handleShow} className="d-flex justify-content-center align-items-center">
+                    <PiLockKeyOpenThin />
+                    <>&nbsp;Admin</>
+                  </button>
                 )}
               </div>
             </div>
           </div>
         </div>
       </nav>
-      
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Book An Appointment</Modal.Title>
+          <Modal.Title>Welcome back</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>

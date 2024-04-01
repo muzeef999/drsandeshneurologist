@@ -9,7 +9,7 @@ const InstagramVideo = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -48,37 +48,29 @@ const InstagramVideo = () => {
     script.src = '//www.instagram.com/embed.js';
     script.async = true;
     document.body.appendChild(script); 
-  
-    // Remove the header from the Instagram iframe
-    const removeHeaderFromInstagramIframe = () => {
-      const iframes = document.querySelectorAll('iframe[src^="https://www.instagram.com"]');
-      if (iframes.length > 0) {
-        iframes.forEach(iframe => {
-          // Check if the iframe has a parent node
-          if (iframe.parentNode) {
-            const parent = iframe.parentNode;
-            // Check if the parent has a class "Embed"
-            if (parent.classList.contains('Embed')) {
-              // Find the header element within the iframe and hide it
-              const headerElement = iframe.contentWindow.document.querySelector('.Header');
-              if (headerElement) {
-                headerElement.style.display = 'none';
-              }
+
+    // Wait for the Instagram embed script to load
+    script.onload = () => {
+        // Wait for a short delay to ensure the Instagram elements are fully loaded
+        setTimeout(() => {
+            // Find and resize the iframes to hide the header
+            const iframes = document.querySelectorAll('iframe[src^="https://www.instagram.com"]');
+            if (iframes.length > 0) {
+                iframes.forEach(iframe => {
+                    iframe.style.height = 'calc(100% - 50px)'; // Adjust the height to hide the header
+                });
             }
-          }
-        });
-      }
+        }, 1000); // Adjust the delay as needed
     };
-  
-    // Call the function to remove the header from the Instagram iframe
-    removeHeaderFromInstagramIframe();
-  
+
     return () => {
-      // Clean up the script when component unmounts
-      document.body.removeChild(script);
+        // Clean up the script when component unmounts
+        document.body.removeChild(script);
     };
-  }, []);
-  
+}, []);
+
+
+
 
   return (
     <div className="instagram_media container">
@@ -95,13 +87,19 @@ const InstagramVideo = () => {
           <blockquote 
             className="instagram-media" 
             data-instgrm-captioned 
-            data-instgrm-permalink="https://www.instagram.com/reel/C2USkm7JhX8/?utm_source=ig_embed&amp;utm_campaign=loading" 
+            data-instgrm-permalink="https://www.instagram.com/reel/C2Up99HqzPW/?utm_source=ig_embed&amp;utm_campaign=loading" 
             data-instgrm-version="14"
           />
           <blockquote 
             className="instagram-media" 
             data-instgrm-captioned 
-            data-instgrm-permalink="https://www.instagram.com/reel/C2USkm7JhX8/?utm_source=ig_embed&amp;utm_campaign=loading" 
+            data-instgrm-permalink="https://www.instagram.com/reel/C2HhxZ8OJs7/?utm_source=ig_embed&amp;utm_campaign=loading" 
+            data-instgrm-version="14"
+          />
+          <blockquote 
+            className="instagram-media" 
+            data-instgrm-captioned 
+            data-instgrm-permalink="https://www.instagram.com/reel/C2UP89AtbMz/?utm_source=ig_embed&amp;utm_campaign=loading" 
             data-instgrm-version="14"
           />
         </Slider>

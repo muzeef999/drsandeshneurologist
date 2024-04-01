@@ -4,12 +4,36 @@
     border-radius: 12px !important;
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 10px 0 rgba(0, 0, 0, 0.15);
     margin: 1px;
-    max-width: 540px;
-    min-width: 326px;
     padding: 0;
-    width: 100%;  
+    width: 100%;  /* Adjust the width to fill the container */
 }
 
-.Embed .Header {
+.Header {
     display: none !important;
-  }
+}
+.instagram-media .Header,
+.instagram-media .Footer {
+    display: none !important; /* Hide the header and footer */
+}
+
+.instagram-embed-container {
+    max-width: 100%; /* Ensure the container doesn't overflow */
+    overflow: hidden; /* Hide any overflow */
+}
+
+.instagram-embed-container iframe {
+    width: 100%; /* Make the iframe fill its container */
+    height: 800px; /* Make the iframe fill its container */
+}
+
+.instagram-media video {
+    width: 100%; /* Make the video fill its container */
+    height: auto; /* Let the height adjust proportionally */
+}
+
+.Embed {
+    display: block;
+    -webkit-tap-highlight-color: transparent;
+    text-align: center !important;
+   
+}

@@ -11,17 +11,22 @@ import { useSession, SessionProvider } from "next-auth/react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import "react-quill/dist/quill.snow.css";
-import Head from "next/head";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Web Page</title>
+      </head>
+
+      <body style={{ position: "relative", minHeight: "100vh" }}>
         <SessionProvider>
           <ToastContainer />
           <Appbar />
           {children}
-          <Footer />
+          <Footer style={{ position: "fixed", bottom: "0", width: "100%" }} />
         </SessionProvider>
       </body>
     </html>

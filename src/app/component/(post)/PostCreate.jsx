@@ -28,7 +28,7 @@ const PostCreate = () => {
     // Check if a file was uploaded
     if (uploadedFile) {
       // Check file size (3 MB limit)
-      if (uploadedFile.size > 3 * 1024 * 1024) { // 3 MB in bytes
+      if (uploadedFile.size > 1 * 1024 * 1024) { // 1 MB in bytes
         alert("File size exceeds the limit of 3 MB.");
         return; // Exit function if file size exceeds limit
       }

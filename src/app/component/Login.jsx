@@ -9,7 +9,6 @@ import { signIn, useSession } from "next-auth/react";
 
 const Login = () => {
 
-    const router = useRouter(); 
   const [user, setUser] = React.useState({
     email: "",
     password: "",
@@ -27,14 +26,19 @@ const Login = () => {
         password : user.password,
         redirect:false
       })
+      
+    
+
+
       if(res.error){
-        setError("Invalid credentials");
+        toast.error("Invalid credentials");
         setLoading(false);
         return;
       }
-
       toast.success("Login success");
-      router.push("/profile");
+    
+      window.location.href = "/";
+
     } catch (error) {
       console.log("Login failed", error.message);
       toast.error(error.message);
@@ -58,27 +62,33 @@ const Login = () => {
             <div className="inputwrapper">
               <center>
                 <h1>{loading ? "Processing" : "Login"}</h1>
+                <br/>
 
-                <input
-                  className="userInput"
-                  id="email"
+                <div className="input-field">
+                <input id="email"
                   type="text"
+                  spellCheck="false"
                   value={user.email}
                   onChange={(e) => setUser({ ...user, email: e.target.value })}
-                  placeholder="email"
-                />
+                   />
+                <label>Enter Mail</label>
+              </div>
+               <br/>
+               
                 <br />
-
-                <input
-                  className="userInput"
-                  id="password"
-                  type="password"
+                <div className="input-field">
+                <input 
+                id="password"
+                type="password"
+                spellCheck="false"
                   value={user.password}
                   onChange={(e) =>
                     setUser({ ...user, password: e.target.value })
                   }
-                  placeholder="password"
-                />
+                  />
+                <label>Enter password</label>
+              </div>
+
                 <br />
                 <button onClick={onLogin} className="loginbutton">
                   Login here

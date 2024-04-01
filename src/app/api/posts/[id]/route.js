@@ -15,8 +15,12 @@ export const GET = async (request, { params }) => {
 
 export async function PUT(request, { params }) {
   const { id } = params;
-  const { newImg: img, username, newContent: content } = await request.json();
-  await connect();
-  await Post.findByIdAndUpdate(id, { img, content, username });
-  return NextResponse.json({ message: " Posted Update" }, { status: 200 });
+  try {
+    const { newImg: img, username, newContent: content } = await request.json();
+    await connect();
+    await Post.findByIdAndUpdate(id, { img, content, username });
+    return NextResponse.json({ message: " Posted Update" }, { status: 200 });
+  } catch (err) {
+    return new NextResponse("Database Error", { status: 500 });
+  }
 }
