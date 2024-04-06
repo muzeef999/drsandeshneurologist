@@ -25,7 +25,7 @@ const Page = ({ params }) => {
 
   // Fetch data using useSWR
   const { data: blog, error } = useSWR(
-    postId ? `http://localhost:3000/api/posts/${postId}` : null,
+    postId ? `/api/posts/${postId}` : null,
     fetchBlog,
     {
       revalidateOnFocus: false // Disable revalidation on focus for now

@@ -32,8 +32,9 @@ export default function RootLayout({ children }) {
         <meta name="keywords" content={metadata.keywords} />
         <meta
           name="google-site-verification"
-          content="google2d8b9c6bfef86c48"
+          content="CMj_C3vdqHMpom_g6nC7Yq2WYvQ8bSR5liu3Pr_v5YA"
         />
+
         <GoogleTagManager gtmId="G-X03KBP4WF1" />
       </head>
 
