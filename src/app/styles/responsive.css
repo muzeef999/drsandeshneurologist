@@ -15,10 +15,97 @@
   .third_img,.fourth_img,.fifth_img,.six_img,.seven_img,.Eight_img,.ninth_img,.ten_img{
     margin-top:68px !important;
   }
-  
- 
+
+}
+
+@media (max-width:991px){
+.human_body{
+  display: none !important;
+}
+#offcanvasNavbarLabels{
+display: block;
+}
+.cont {
+  width: 90% !important;
+  padding: 3px 10px;
+  background-color: #afafaf7a;
+}
+.link {
+  text-decoration: none;
+  color: rgb(5, 5, 5);
+  font-size: 30px !important;
+  text-align: end;
+  height: 100px !important;
+}
+.offcanvas-body{
+  display: grid;
+  justify-content:initial !important;
+  align-items:initial !important;
+}
+.scroll-section-inner {
+  height:220vh !important;
+  width: 400vw !important;
+  flex-direction: row;
+  position: relative !important;
+  display: flex;
+  transition: cubic-bezier(0.19, 1, 0.22, 1)1s;
+}
+.scroll-section {
+  height:100vh;
+  width: 100vw;
+  display: grid !important;
+  align-items: center !important;
+}
+#svg_id{
+  width: 270% !important;
+}
+.container, .container-md, .container-sm {
+  max-width: 874px;
+}
+.offcanvas-body{
+  display: grid;
+  justify-content:initial !important;
+  align-items:initial !important;
+  height: 200px !important;
+}
+.links{
+  display: grid;
+  color: black;
+  justify-content: end;
+  height: 200px !important;
+}
+.admin{
+  width: 100px !important;
+  height: auto;
+  background-color: red;
+}
+.admin_btn{
+  display: none;
+}
+.links p {
+  margin-left:0px;
+  font-weight: 600;
+  height: 100px !important;
+}
+}
+
+
+/* start clear */
+@media (max-width:764px){
+  #svg_id{
+    width: 240% !important;
+  }
+  .contact_head{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+   }
+   .svg_head{
+    width:40% !important
+   }
 }
 @media (max-width: 430px){
+
     .img-fluid{
         width:50%;
         text-align: center;
@@ -26,16 +113,14 @@
     .card-text{
         font-size: 14px !important;
     }
-    .offcanvas-body{
-        display: grid;
-        justify-content:initial !important;
-        align-items:initial !important;
-      }
-      .links{
-        display: grid;
-        color: black;
-        justify-content: end;
-      }
+    .svg_head{
+      width:60% !important
+     }
+     #svg_id {
+      margin-left: 10% !important;
+    }
+  
+     
     #offcanvasNavbarLabels{
         display:inherit;
       }
@@ -81,6 +166,17 @@ align-content: center;
       }
       .one_img,.second_img{
         margin-top:10px !important;
+      }
+      .scroll-section-inner {
+        height:160vh !important;
+        width: 400vw !important;
+        flex-direction: row;
+        position: relative !important;
+        display: flex;
+        transition: cubic-bezier(0.19, 1, 0.22, 1)1s;
+      }
+      .scroll-section {
+        height:100vh !important;
       }
 
 }

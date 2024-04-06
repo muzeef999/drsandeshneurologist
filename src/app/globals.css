@@ -11,7 +11,7 @@ html,
 body {
   height: 100vh;
   max-width: 100vw;
-  overflow-x: hidden;
+
   font-family: 'Aileron', 'sans-serif' !important; /* Specify the font family and fallback */
   background-color: #fff !important;
   position: relative;
@@ -37,7 +37,11 @@ body {
 .slick-list {
   height: 500px !important;
 }
-
+.contact_head{
+  display: flex;
+ justify-content: end;
+  align-items: end;
+}
 
 
 .navabarown {
@@ -235,19 +239,8 @@ ul li {
   overflow: hidden;
 } */
 
-.scroll-section-inner {
-  height: auto;
-  width: 200%;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-}
 
-.scroll-section {
-  height: auto;
-  width: 100%;
-  display: flex;
-}
+
 
 .drawpathbg{
   position: relative;
@@ -278,5 +271,8 @@ ul li {
   text-align: center; /* Center the loading spinner horizontally */
 }
 
-
+div.Header{
+  display: none !important;
+  visibility: hidden !important;
+}
 

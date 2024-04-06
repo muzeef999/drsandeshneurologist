@@ -11,14 +11,30 @@ import { useSession, SessionProvider } from "next-auth/react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import "react-quill/dist/quill.snow.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleTagManager } from "@next/third-parties/google";
+
+const metadata = {
+  title:
+    "Neuro Physician Dr. Sandesh Nanisetty | Best Neurologist in Gachibowli",
+  description:
+    "Dr. Sandesh Nanisetty is the Best Neurologist in Gachibowli, practising as a Consultant Neuro Physician Arete Hospitals, Gachibowli and Freedom Hospital, Gandipet.",
+  keywords:
+    "Top 3 Neurologist in Hyderabad,Best Neuro Hospital in Hyderabad,Best Neurology Doctor in Hyderabad,best neurologist in gachibowli,Best Neuro Physician Doctor in Gachibowli,Best Neurologists in Gachibowli,Best Neurology Hospitals in Gachibowli,Top Neurologist in Gachibowli,Brain Specialist Doctor in Gachibowli,Best Doctors for Meningitis Treatment in Gachibowli",
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>My Web Page</title>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords} />
+        <meta
+          name="google-site-verification"
+          content="google2d8b9c6bfef86c48"
+        />
+        <GoogleTagManager gtmId="G-X03KBP4WF1" />
       </head>
 
       <body style={{ position: "relative", minHeight: "100vh" }}>
@@ -26,6 +42,7 @@ export default function RootLayout({ children }) {
           <ToastContainer />
           <Appbar />
           {children}
+          <SpeedInsights />
           <Footer style={{ position: "fixed", bottom: "0", width: "100%" }} />
         </SessionProvider>
       </body>

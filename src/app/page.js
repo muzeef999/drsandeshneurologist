@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
 import Service from "./component/Service";
-import Doctor from "../asserts/doctor.png";
-import Experience from "./component/Experience";
+import Doctor from "../asserts/doctor.webp";
 import Qulification from "./component/Qulification";
 import { useRef, useState } from "react";
 import { gsap } from "gsap";
@@ -14,10 +13,10 @@ import ContactUs from "./component/ContactUs";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Appoittement from "./component/Appoittement";
-import Head from "next/head";
 import Video from "./component/InstagramVideo";
 import InstagramVideo from "./component/InstagramVideo";
 import Loading from "./component/Loading";
+import Timeline from "./component/Timeline";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,7 +27,7 @@ export default function Home() {
   const handleShow = () => setShow(true);
 
   return (
-    <div>
+    <>
       <div className="container hero_section">
         <div className="row hero_data">
           <div className="col-md-6">
@@ -59,8 +58,7 @@ export default function Home() {
         </div>
         <Qulification />
       </div>
-
-      <Experience />
+      <Timeline />
       <Service />
 
       <div className="special">
@@ -105,6 +103,6 @@ export default function Home() {
           <Appoittement />
         </Modal.Body>
       </Modal>
-    </div>
+    </>
   );
 }

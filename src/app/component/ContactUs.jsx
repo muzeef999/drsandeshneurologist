@@ -40,9 +40,9 @@ const ContactUs = () => {
   return (
     <div className='container'>
               <div className="row gx-0 align-items-end">
-          <div className="col-md-6 px-0  d-flex justify-content-end align-items-end">
+          <div className="col-md-6 px-0  contact_head">
            
-          <svg width="65%" height="auto" viewBox="0 0 479 554" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="65%" height="auto" viewBox="0 0 479 554" fill="none" xmlns="http://www.w3.org/2000/svg" className='svg_head'>
 <g id="Group">
 <g id="Group_2">
 <g id="brainplug">

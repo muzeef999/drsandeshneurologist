@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Blogs from "../component/Blogs";
-import Experience from "../component/Experience";
 import Qulification from "../component/Qulification";
 import Service from "../component/Service";
 import Contact from "../contactus/page";
@@ -16,6 +15,7 @@ import { Modal } from "react-bootstrap";
 import Link from "next/link";
 import useSWR from "swr";
 import dynamic from "next/dynamic";
+import Timeline from "../component/Timeline";
 const PostCreate = dynamic(() => import("../component/(post)/PostCreate"), {
   ssr: false,
 });
@@ -28,20 +28,21 @@ const Page = () => {
   const handleShow = () => setShow(true);
 
   // Fetch posts using SWR
-  const { data: posts, error } = useSWR(
-    "http://localhost:3000/api/posts",
-    async (url) => {
-      const response = await axios.get(url);
-      return response.data;
-    }
-  );
+  const { data: posts, error } = useSWR("/api/posts", async (url) => {
+    const response = await axios.get(url);
+    return response.data;
+  });
 
   const createtologin = () => {
     router.push("/profile");
   };
 
   return (
-    <div>
+    <>
+      <head>
+        <title>blogs 1</title>
+      </head>
+
       <div className="container">
         <br />
         <div className={style.blogheading}>
@@ -79,7 +80,7 @@ const Page = () => {
 
       <Blogs />
       <br />
-      <Experience />
+      <Timeline />
       <br />
       <Qulification />
       <br />
@@ -95,7 +96,7 @@ const Page = () => {
           <PostCreate />
         </Modal.Body>
       </Modal>
-    </div>
+    </>
   );
 };
 

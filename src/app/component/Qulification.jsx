@@ -38,19 +38,27 @@ const Qulification = () => {
         >
           <div>
             <p className="qualifactionp">
-
-           
-Dr Sandesh Nanisetty is a highly skilled and dedicated Consultant in Neurology, currently serving at Arete Hospitals, Gachibowli and Freedom Hospital, Gandipet. With a distinguished educational background, he attained his MBBS from Jawaharlal Nehru Medical College, KLE University. Dr Sandesh Nanisetty further pursued and excelled in his medical journey with DNB in General Medicine from St Theresa’s Hospital, followed by MNAMS in General Medicine and DM in Neurology from Nizam’s Institute of Medical Sciences (NIMS). 
-<br/>
-Dr Sandesh Nanisetty commitment to advancing his knowledge is underscored by certifications in Dementia from NHS, England, and MRCP (Neurology) from the UK. Dr Nanisetty has extensive experience, having served as an Assistant Professor at NIMS and a Senior Resident in Neurology.
-           
+              Dr Sandesh Nanisetty is a highly skilled and dedicated Consultant
+              in Neurology, currently serving at Arete Hospitals, Gachibowli and
+              Freedom Hospital, Gandipet. With a distinguished educational
+              background, he attained his MBBS from Jawaharlal Nehru Medical
+              College, KLE University. Dr Sandesh Nanisetty further pursued and
+              excelled in his medical journey with DNB in General Medicine from
+              St Theresa’s Hospital, followed by MNAMS in General Medicine and
+              DM in Neurology from Nizam’s Institute of Medical Sciences (NIMS).
+              <br />
+              Dr Sandesh Nanisetty commitment to advancing his knowledge is
+              underscored by certifications in Dementia from NHS, England, and
+              MRCP (Neurology) from the UK. Dr Nanisetty has extensive
+              experience, having served as an Assistant Professor at NIMS and a
+              Senior Resident in Neurology.
             </p>
             <br />
             <h1 className="q-text" style={{ textAlign: "center" }}>
-            Qualification
+              Qualification
             </h1>
             <center>
-              <svg
+              <svg 
                 width="80%"
                 height="80%"
                 viewBox="0 0 571 848"
@@ -182,7 +190,7 @@ Dr Sandesh Nanisetty commitment to advancing his knowledge is underscored by cer
                       fontFamily="Arial"
                       fill="black"
                     >
-                      &#8226; 2018-2014
+                      &#8226; 2008-2014
                     </text>
                     <text
                       x="60"
@@ -225,6 +233,7 @@ Dr Sandesh Nanisetty commitment to advancing his knowledge is underscored by cer
         <Col md={6} className="d-flex justify-content-center">
           <div>
             <svg
+            className="human_body"
               width="100%"
               height="auto"
               viewBox="0 0 470 1200"

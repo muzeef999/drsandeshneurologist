@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
@@ -24,6 +24,12 @@ const Appbar = () => {
       console.error("Failed to sign out:", error);
     }
   };
+  useEffect(() => {
+    // Load Bootstrap JS only on the client-side
+    if (typeof window !== "undefined") {
+      require('bootstrap/dist/js/bootstrap.bundle.min');
+    }
+  }, []);
 
   return (
     <>
@@ -80,7 +86,7 @@ const Appbar = () => {
                   </Link>
                 </p>
               </div>
-              <div style={{ border: "3px solid #27b9ec", borderRadius: "22px", backgroundColor: "#27b9ec" }}>
+              <div style={{ border: "3px solid #27b9ec", borderRadius: "22px", backgroundColor: "#27b9ec" }} className="admin_btn">
                 {status === "authenticated" ? (
                   <div className="d-flex justify-content-center align-items-center">
                     <Link href="/profile" className="d-flex justify-content-center align-items-center" style={{ color: "#FFF", textDecoration: "none" }}>
@@ -95,7 +101,7 @@ const Appbar = () => {
                     </button>
                   </div>
                 ) : (
-                  <button onClick={handleShow} className="d-flex justify-content-center align-items-center">
+                  <button onClick={handleShow} className="d-flex justify-content-center align-items-center admin">
                     <PiLockKeyOpenThin />
                     <>&nbsp;Admin</>
                   </button>
