@@ -5,6 +5,8 @@ import { FaFacebook } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaTwitter } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa6";
+
 import Link from "next/link";
 
 
@@ -69,9 +71,15 @@ const Footer = () => {
                     <FaTwitter />
                     </Link>
                   </div>
+                  
                   <div>
                     <Link href={"https://www.linkedin.com/company/dr-sandesh-nanisetty/"} target="_blank" style={{textDecoration:'none', color:"#FFF"}}>
                     <FaLinkedinIn />
+                    </Link>
+                  </div>
+                  <div>
+                    <Link href={"https://www.youtube.com/channel/UC8ZI-MIOP6aQ3AwID05Nuvw"} target="_blank" style={{textDecoration:'none', color:"#FFF"}}>
+                    <FaYoutube />
                     </Link>
                   </div>
                 </div>

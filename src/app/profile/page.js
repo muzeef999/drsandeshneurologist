@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from "react-bootstrap/Modal";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const PostCreate = dynamic(() => import("../component/(post)/PostCreate"), {
   ssr: false,
@@ -78,7 +79,7 @@ const Page = () => {
             updatedPosts.map((post) => (
               <div key={post._id}>
                 <div className="cardBlog" key={post._id}>
-                  <img
+                  <Image
                     className="imgblog"
                     src={post.img}
                     alt="doctor"

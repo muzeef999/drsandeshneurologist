@@ -17,6 +17,7 @@ const Timeline = () => {
         end: "500px top",
         scrub: 1.5,
         pin: true,
+        pinType: "fixed",
       },
     });
 

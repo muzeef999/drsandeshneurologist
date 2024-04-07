@@ -17,6 +17,8 @@ const Contact = () => {
     <>
     <head>
    <title>{metadata.title}</title>
+   <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords} />
     </head>
      
       <div className="container">

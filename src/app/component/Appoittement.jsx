@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 import { FaCheckCircle, FaFacebook, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 import Link from "next/link";
+import { FaYoutube } from "react-icons/fa6";
+
 
 const Appoittement = () => {
   const [loading, setLoading] = React.useState(false);
@@ -16,26 +18,45 @@ const Appoittement = () => {
   const [radiotext, setRadio] = useState(" ");
 
   const ACCESS_TOKEN =
-    "EAAU9dqi5jOQBOzzAoR5bx2HCz3lDO12uH3aoys4sIlEZA20HmKBXhUZB5mwoLZBb4RruHZB7q2D756XnjG8kRB3IjBXp0cf6IjPd9sNuefAZBAp5Fkf3BwOwHEUUlKklWsxN0YXB5fAV6J7qvhFfO0FNNuCzQbjSZAYnbJVwr3FGbtK37VZC4WweBzpe7ZCrlW04";
-
+    "EAAU9dqi5jOQBOzzAoR5bx2HCz3lDO12uH3aoys4sIlEZA20HmKBXhUZB5mwoLZBb4RruHZB7q2D756XnjG8kRB3IjBXp0cf6IjPd9sNuefAZBAp5Fkf3BwOwHEUUlKklWsxN0YXB5fAV6J7qvhFfO0FNNuCzQbjSZAYnbJVwr3FGbtK37VZC4WweBzpe7ZCrlW04"
   const handleRadioChange = (event) => {
     setRadio(event.target.value); // Update the radiotext state with the selected value
   };
-
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
       const payload = {
-        messaging_product: "whatsapp",
-        recipient_type: "individual",
-        to: "919959456647", // Replace with the recipient's number
-        type: "text",
-        text: {
-          preview_url: false,
-          body: `*Name* : ${name},\n*Number* : ${number},\n*Message* : ${message}\n*Time*:${radiotext}`,
-        },
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "919959456647",
+        "type": "template",
+        "template": {
+          "name": "appointment_custom_messages",
+          "language": {
+            "code": "en"
+          },
+          "components": [
+            {
+              "type": "body",
+              "parameters": [
+                {
+                  "type": "text",
+                  "text":  `${name}`
+                },
+                {
+                  "type": "text",
+                  "text": `${number}`
+                },
+                {
+                  "type": "text",
+                  "text": `${message}__SelectedTimingSlot:${radiotext}__from: https://www.drsandeshneurologist.com/`
+                }
+              ]
+            }
+          ]
+        }
       };
-
+  
       const response = await axios.post(
         "https://graph.facebook.com/v18.0/209988965541805/messages",
         payload,
@@ -46,15 +67,17 @@ const Appoittement = () => {
           },
         }
       );
-
+  
+      console.log(response.data); // Log the response to inspect
+  
       toast.success("Message sent successfully");
       setLoading(true);
-
-      // console.log("Message sent successfully:", response.data);
     } catch (error) {
+      console.error("Error sending message:", error.message); // Log the error
       toast.error("Error sending message:", error.message);
     }
   };
+  
 
   return (
     <div>
@@ -180,6 +203,11 @@ const Appoittement = () => {
                   <div>
                     <Link href={"https://www.linkedin.com/company/dr-sandesh-nanisetty/"} target="_blank" style={{textDecoration:'none', color:"#969293"}}>
                     <FaLinkedinIn  size={20}/>
+                    </Link>
+                  </div>
+                  <div>
+                    <Link href={"https://www.youtube.com/channel/UC8ZI-MIOP6aQ3AwID05Nuvw"} target="_blank" style={{textDecoration:'none', color:"#969293"}}>
+                    <FaYoutube />
                     </Link>
                   </div>
                 </div>

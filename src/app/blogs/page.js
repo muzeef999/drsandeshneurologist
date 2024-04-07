@@ -16,9 +16,20 @@ import Link from "next/link";
 import useSWR from "swr";
 import dynamic from "next/dynamic";
 import Timeline from "../component/Timeline";
+import Image from "next/image";
 const PostCreate = dynamic(() => import("../component/(post)/PostCreate"), {
   ssr: false,
 });
+
+const metadata = {
+  title: "Dr. Sandesh Nanisetty | Best Neurologist in Kondapur",
+
+  keywords:
+    "Best Neuro Doctor in Hyderabad,Best Neurology Surgeon in Kondapur,Brain Specialist Hospital in Hyderabad,Brain Specialist in kondapur,Neurologist in kondapur Hyderabad,Best Neurologist in kondapur,Brain Stroke Specialist in Kondapur,Top Neurologist in Kondapur,top Neurologist in Gandipet ,Stroke Specialist Doctor in Gandipet,Best Neurology Hospitals in Kokapet,Best Neurologists In Kokapet",
+
+  description:
+    "Dr. Sandesh Nanisetty Best Neurologist in Kondapur, Hyderabad. Book an appointment with best Neurologist in Kondapur, the best hospitals in Hyderabad",
+};
 
 const Page = () => {
   const router = useRouter();
@@ -40,7 +51,9 @@ const Page = () => {
   return (
     <>
       <head>
-        <title>blogs 1</title>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords} />
       </head>
 
       <div className="container">
@@ -56,7 +69,7 @@ const Page = () => {
                   href={`/blogs/${item._id}`}
                   style={{ textDecoration: "none" }}
                 >
-                  <img
+                  <Image
                     className="imgblog"
                     src={item.img}
                     alt="doctor"

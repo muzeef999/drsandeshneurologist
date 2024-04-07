@@ -11,6 +11,9 @@ import nmsod from "../../asserts/NMOSD.webp";
 import Myasthenia from "../../asserts/Myasthenia.webp";
 import wheelchair from "../../asserts/wheelchair.webp";
 import meningitis from "../../asserts/Meningitis.webp";
+import headeche from "../../asserts/Headeche.webp"
+import innerear from "../../asserts/innerear.webp"
+import Parkinson from "../../asserts/Parkinson.webp"
 import { Modal } from "react-bootstrap";
 import Appoittement from "./Appoittement";
 import "../styles/text.css"
@@ -329,6 +332,86 @@ const Service = () => {
               </div>
             </div>
           </div>
+
+
+          <div className="col-md-6 d-flex justify-content-center align-items-center">
+            <div className="card mb-5">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <Image
+                    src={headeche}
+                    className="card_service_img"
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">
+                    Headache
+                    </h5>
+                    <p className="card-text">
+                    Headache pain results from signals interacting among your brain, blood vessels and surrounding nerves. During a headache, multiple mechanisms activate specific nerves that affect muscles and blood vessels. These nerves send pain signals to your brain, causing a headache.
+                    </p>
+                    <button  onClick={handleShow} className="service_btn">Book An Appointment</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-6 d-flex justify-content-center align-items-center">
+            <div className="card mb-5">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <Image
+                    src={innerear}
+                    className="card_service_img"
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">
+                    vertigo
+                    </h5>
+                    <p className="card-text">
+                    Vertigo is not a disease itself but rather a symptom of various underlying conditions. It's characterized by a sensation of spinning, dizziness, or a feeling that the environment around you is moving or spinning when it's not. This sensation can range from mild to severe and may be accompanied by other symptoms such as nausea, vomiting, sweating, or difficulty walking.
+                    </p>
+                    <button  onClick={handleShow} className="service_btn">Book An Appointment</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+
+
+          <div className="col-md-6 d-flex justify-content-center align-items-center">
+            <div className="card mb-5">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <Image
+                    src={Parkinson}
+                    className="card_service_img"
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">
+                    Parkinson's
+                    </h5>
+                    <p className="card-text">
+                    Treatment for Parkinson's disease typically involves a combination of medications, therapies, and lifestyle changes aimed at managing symptoms and improving quality of life. Here are some common approaches to Parkinson's treatment
+                    </p>
+                    <button  onClick={handleShow} className="service_btn">Book An Appointment</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
       

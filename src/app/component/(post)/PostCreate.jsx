@@ -86,7 +86,7 @@ const PostCreate = () => {
         <input type='file' className='fileUpload' accept='image/*' onChange={getFile} required></input>
         <br/>
         <br/>
-        <img src={file} className='imageupload'  />
+        <img src={file} className='imageupload'  alt="imageupload" />
         <br/>
         <br/>
         <ReactQuill theme='snow' className='blogcontent' value={post.content} onChange={(content) => setPost({ ...post, content })}/>

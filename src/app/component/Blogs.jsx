@@ -6,6 +6,7 @@ import axios from "axios";
 import Slider from "react-slick";
 import useSWR from "swr";
 import Loading from "./Loading";
+import Image from "next/image"
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
@@ -71,7 +72,7 @@ const Blogs = () => {
         <Slider {...settings}>
           {posts.map((item) => (
             <div className="cardBlog" key={item._id}>
-              <img
+              <Image
                 className="imgblog"
                 src={item.img}
                 alt="doctor"

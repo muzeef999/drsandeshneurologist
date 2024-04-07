@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
         <GoogleTagManager gtmId="G-X03KBP4WF1" />
       </head>
 
-      <body style={{ position: "relative", minHeight: "100vh" }}>
+      <body>
         <SessionProvider>
           <ToastContainer />
           <Appbar />

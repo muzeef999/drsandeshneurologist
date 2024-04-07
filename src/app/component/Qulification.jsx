@@ -44,14 +44,15 @@ const Qulification = () => {
               background, he attained his MBBS from Jawaharlal Nehru Medical
               College, KLE University. Dr Sandesh Nanisetty further pursued and
               excelled in his medical journey with DNB in General Medicine from
-              St Theresa’s Hospital, followed by MNAMS in General Medicine and
-              DM in Neurology from Nizam’s Institute of Medical Sciences (NIMS).
+              St Theresa's Hospital, followed by MNAMS in General Medicine and
+              DM in Neurology from Nizam's Institute of Medical Sciences (NIMS).
               <br />
+              <br/>
               Dr Sandesh Nanisetty commitment to advancing his knowledge is
               underscored by certifications in Dementia from NHS, England, and
               MRCP (Neurology) from the UK. Dr Nanisetty has extensive
               experience, having served as an Assistant Professor at NIMS and a
-              Senior Resident in Neurology.
+              Senior Resident in Neurology.
             </p>
             <br />
             <h1 className="q-text" style={{ textAlign: "center" }}>

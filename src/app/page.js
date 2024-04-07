@@ -42,12 +42,13 @@ export default function Home() {
               migraines, vertigo, multiple sclerosis, Parkinson's disease,
               diabetic neuropathy, and issues related to the cervical and lumbar
               spine, among others. He has a particular expertise in providing
-              Botox injections for the treatment of dystonia, spasticity, and
-              other neurological conditions, emphasizing meticulous attention to
-              detail and superior patient care. Dr. Nanisetty's approach is
-              centered on delivering personalized care and leveraging the latest
-              in medical advancements, underscoring his commitment to enhancing
-              patients' brain health and overall quality of life.
+              Botox injections for the treatment of dystonia, spasticity,
+              migraine, and other neurological conditions, emphasizing
+              meticulous attention to detail and superior patient care. Dr.
+              Nanisetty's approach is centered on delivering personalized care
+              and leveraging the latest in medical advancements, underscoring
+              his commitment to enhancing patients' brain health and overall
+              quality of life.
             </p>
             <br />
             <button onClick={handleShow}>Book An Appointment</button>
