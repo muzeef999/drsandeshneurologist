@@ -13,7 +13,7 @@ import wheelchair from "../../asserts/wheelchair.webp";
 import meningitis from "../../asserts/Meningitis.webp";
 import headeche from "../../asserts/Headeche.webp"
 import innerear from "../../asserts/innerear.webp"
-import Parkinson from "../../asserts/Parkinson.webp"
+import Parkinson from "../../asserts/parkinson.webp"
 import { Modal } from "react-bootstrap";
 import Appoittement from "./Appoittement";
 import "../styles/text.css"
