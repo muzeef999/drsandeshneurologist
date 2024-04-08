@@ -20,6 +20,15 @@ import Timeline from "./component/Timeline";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const metadata = {
+  title:
+    "Neuro Physician Dr. Sandesh Nanisetty | Best Neurologist in Gachibowli",
+  description:
+    "Dr. Sandesh Nanisetty is the Best Neurologist in Gachibowli, practising as a Consultant Neuro Physician Arete Hospitals, Gachibowli and Freedom Hospital, Gandipet.",
+  keywords:
+    "Top 3 Neurologist in Hyderabad,Best Neuro Hospital in Hyderabad,Best Neurology Doctor in Hyderabad,best neurologist in gachibowli,Best Neuro Physician Doctor in Gachibowli,Best Neurologists in Gachibowli,Best Neurology Hospitals in Gachibowli,Top Neurologist in Gachibowli,Brain Specialist Doctor in Gachibowli,Best Doctors for Meningitis Treatment in Gachibowli",
+};
+
 export default function Home() {
   const [show, setShow] = useState(false);
 
@@ -28,6 +37,13 @@ export default function Home() {
 
   return (
     <>
+      <head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords} />
+        <link rel="canonical" href="https://www.drsandeshneurologist.com/" />
+      </head>
+
       <div className="container hero_section">
         <div className="row hero_data">
           <div className="col-md-6">
