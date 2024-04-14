@@ -48,8 +48,8 @@ const Footer = () => {
                 <a href={"mailto:drsandeshnanisetty@gmail.com"} style={{textDecoration:'none', color:"#FFF"}}>
                 <p>drsandeshnanisetty@gmail.com</p>
                 </a>
-                <a href={"tel:+919652461501"} style={{textDecoration:'none', color:"#FFF"}}>
-                <p>+91 96524 61501</p>
+                <a href={"tel:+917663000999"} style={{textDecoration:'none', color:"#FFF"}}>
+                <p>+91&nbsp;7663&nbsp;000&nbsp;999</p>
                 </a>
               </div>
               <div>

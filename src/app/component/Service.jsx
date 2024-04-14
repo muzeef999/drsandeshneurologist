@@ -321,10 +321,7 @@ const Service = () => {
                       Botulinum Toxin (Botox) injections
                     </h5>
                     <p className="card-text">
-                      Botulinum toxin (Botox) injections temporarily paralyze
-                      muscles by blocking nerve signals, commonly used for
-                      cosmetic purposes to reduce wrinkles and for medical
-                      conditions like muscle spasms or chronic migraines.
+                    Botulinum toxin (Botox) injections, commonly used in neurology, temporarily paralyze muscles by blocking nerve signals. They are utilized for cosmetic purposes to reduce wrinkles and for medical conditions like muscle spasms or chronic migraines.
                     </p>
                     <button  onClick={handleShow} className="service_btn">Book An Appointment</button>
                   </div>
@@ -403,7 +400,7 @@ const Service = () => {
                     Parkinson's
                     </h5>
                     <p className="card-text">
-                    Treatment for Parkinson's disease typically involves a combination of medications, therapies, and lifestyle changes aimed at managing symptoms and improving quality of life. Here are some common approaches to Parkinson's treatment
+                    Parkinson's disease is a progressive neurological disorder marked by motor symptoms like tremors and stiffness, caused by dopamine cell loss. It also brings cognitive and mood changes. While incurable, treatments can ease symptoms and enhance life quality.
                     </p>
                     <button  onClick={handleShow} className="service_btn">Book An Appointment</button>
                   </div>

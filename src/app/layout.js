@@ -25,7 +25,6 @@ export default function RootLayout({ children }) {
 
         <GoogleTagManager gtmId="G-X03KBP4WF1" />
       </head>
-
       <body>
         <SessionProvider>
           <ToastContainer />

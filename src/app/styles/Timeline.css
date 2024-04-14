@@ -62,7 +62,7 @@
     overflow: hidden !important;
     transition: cubic-bezier(0.19, 1, 0.22, 1)1s;
   }
-  .scroll-section-inner {
+  /* .scroll-section-inner {
     height:155vh !important;
     width: 400vw !important;
     flex-direction: row;
@@ -75,7 +75,7 @@
     width: 100vw;
     display: grid !important;
     align-items: center !important;
-  }
+  } */
   .team-ache{
     width: 500vw !important;
   }
