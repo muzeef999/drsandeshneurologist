@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
           <Appbar />
           {children}
           <SpeedInsights />
-          <Footer style={{ position: "fixed", bottom: "0", width: "100%" }} />
+          <Footer />
         </SessionProvider>
       </body>
     </html>

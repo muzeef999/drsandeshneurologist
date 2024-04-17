@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { FloatingWhatsApp } from "react-floating-whatsapp";
 import { FaFacebook } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaTwitter } from "react-icons/fa6";
@@ -8,19 +7,13 @@ import { FaLinkedinIn } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
 
 import Link from "next/link";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 
 const Footer = () => {
   return (
     <div style={{ backgroundColor: "#27b9ec", color:'#FFF' }}>
-      <FloatingWhatsApp
-        phoneNumber="96524 61501 "
-        accountName="Doctor"
-        allowEsc
-        allowClickAway
-        notification
-        notificationSound
-      />
+      
       <div className="container footer_data">
         <div className="row">
           <div className="col-md-6">
@@ -88,6 +81,15 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <FloatingWhatsApp
+            phoneNumber="+917663000999"
+            accountName="Dr. Sandesh Nanisetty"
+            allowEsc
+            allowClickAway
+            notification
+            avatar="https://firebasestorage.googleapis.com/v0/b/demoweb-9a79d.appspot.com/o/1234.webp?alt=media&token=153402b7-a9ec-4c8c-95f9-f092b592d5c9"
+            notificationSound
+          />
     </div>
   );
 };

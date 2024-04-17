@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild":"node  build-utilities/generate-robots.js",
+    "prebuild": "node  build-utilities/generate-robots.js",
     "build": "node  build-utilities/generate-sitemap.js && next build",
     "start": "next start",
     "lint": "next lint"
