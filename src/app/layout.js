@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
           name="google-site-verification"
           content="CMj_C3vdqHMpom_g6nC7Yq2WYvQ8bSR5liu3Pr_v5YA"
         />
+        <link rel="canonical" href="https://www.drsandeshneurologist.com/" />
 
         <GoogleTagManager gtmId="G-X03KBP4WF1" />
       </head>

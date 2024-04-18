@@ -1,1 +1,1 @@
-fixed whatsapp bugs and ssl certificate
+fixed seo bugs
