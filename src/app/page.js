@@ -21,12 +21,11 @@ import Timeline from "./component/Timeline";
 gsap.registerPlugin(ScrollTrigger);
 
 const metadata = {
-  title:
-    "Neuro Physician Dr. Sandesh Nanisetty | Best Neurologist in Gachibowli",
+  title: "Best Neuro Physician in Gachibowli | Dr. Sandesh Nanisetty",
   description:
-    "Dr. Sandesh Nanisetty is the Best Neurologist in Gachibowli, practising as a Consultant Neuro Physician Arete Hospitals, Gachibowli and Freedom Hospital, Gandipet.",
+    "Dr. Sandesh Nanisetty is the Best Neuro Physician in Gachibowli, practising as a Consultant Neuro Physician Arete Hospitals, Gachibowli and Freedom Hospital, Gandipet.",
   keywords:
-    "Top 3 Neurologist in Hyderabad,Best Neuro Hospital in Hyderabad,Best Neurology Doctor in Hyderabad,best neurologist in gachibowli,Best Neuro Physician Doctor in Gachibowli,Best Neurologists in Gachibowli,Best Neurology Hospitals in Gachibowli,Top Neurologist in Gachibowli,Brain Specialist Doctor in Gachibowli,Best Doctors for Meningitis Treatment in Gachibowli",
+    "Top 3 Neurologist in Gachibowli , Best Neuro Doctor in Gachibowli,Best Neurology Doctor in Hyderabad,best neurologist in gachibowli,Best Neuro Physician Doctor in Gachibowli,Best Neurologists in Gachibowli,Best Neurology Hospitals in Gachibowli,Top Neurologist in Gachibowli,Brain Specialist Doctor in Gachibowli,Best Doctors for Meningitis Treatment in Gachibowli",
 };
 
 export default function Home() {

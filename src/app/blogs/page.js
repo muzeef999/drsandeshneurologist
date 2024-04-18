@@ -22,13 +22,13 @@ const PostCreate = dynamic(() => import("../component/(post)/PostCreate"), {
 });
 
 const metadata = {
-  title: "Dr. Sandesh Nanisetty | Best Neurologist in Kondapur",
+  title: "Best Neurology Doctor in Kondapur | Dr. Sandesh Nanisetty",
 
   keywords:
-    "Best Neuro Doctor in Hyderabad,Best Neurology Surgeon in Kondapur,Brain Specialist Hospital in Hyderabad,Brain Specialist in kondapur,Neurologist in kondapur Hyderabad,Best Neurologist in kondapur,Brain Stroke Specialist in Kondapur,Top Neurologist in Kondapur,top Neurologist in Gandipet ,Stroke Specialist Doctor in Gandipet,Best Neurology Hospitals in Kokapet,Best Neurologists In Kokapet",
+    "Best Neuro Doctor in Kondapur,Best Neurology Doctor in Kondapur,Brain Specialist Hospital in Kondapur,Brain Specialist in kondapur,Neurologist in kondapur Hyderabad,Best Neurologist in kondapur,Brain Stroke Specialist in Kondapur,Top Neurologist in Kondapur,top Neurologist in Gandipet ,Stroke Specialist Doctor in Gandipet,Best Neurology Hospitals in Kokapet,Best Neurologists In Kokapet",
 
   description:
-    "Dr. Sandesh Nanisetty Best Neurologist in Kondapur, Hyderabad. Book an appointment with best Neurologist in Kondapur, the best hospitals in Hyderabad",
+    "Dr. Sandesh Nanisetty Best Neurology Doctor in Kondapur, Hyderabad. Book an appointment with best Neurologist in Kondapur, the best hospitals in Hyderabad",
 };
 
 const Page = () => {
