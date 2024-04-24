@@ -82,14 +82,13 @@ const Footer = () => {
         </div>
       </div>
       <FloatingWhatsApp
-            phoneNumber="+917663000999"
-            accountName="Dr. Sandesh Nanisetty"
-            allowEsc
-            allowClickAway
-            notification
-            avatar="https://firebasestorage.googleapis.com/v0/b/demoweb-9a79d.appspot.com/o/1234.webp?alt=media&token=153402b7-a9ec-4c8c-95f9-f092b592d5c9"
-            notificationSound
-          />
+    phoneNumber="+917663000999"
+    accountName="Dr. Sandesh Nanisetty"
+
+    notification
+    avatar="https://firebasestorage.googleapis.com/v0/b/demoweb-9a79d.appspot.com/o/1234.webp?alt=media&token=153402b7-a9ec-4c8c-95f9-f092b592d5c9"
+    notificationSound
+/>
     </div>
   );
 };
