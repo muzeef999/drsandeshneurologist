@@ -13,6 +13,7 @@ import { ToastContainer } from "react-toastify";
 import "react-quill/dist/quill.snow.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({ children }) {
   return (
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
           <Appbar />
           {children}
           <SpeedInsights />
+          <Analytics />
           <Footer />
         </SessionProvider>
       </body>

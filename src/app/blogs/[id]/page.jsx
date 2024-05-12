@@ -52,6 +52,9 @@ const Page = ({ params }) => {
     return <div>Loading...</div>; // Render a loading indicator while data is being fetched
   }
 
+
+  
+
   return (
     <div className='container'>
       <Row>

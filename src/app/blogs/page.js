@@ -21,16 +21,6 @@ const PostCreate = dynamic(() => import("../component/(post)/PostCreate"), {
   ssr: false,
 });
 
-const metadata = {
-  title: "Best Neurology Doctor in Kondapur | Dr. Sandesh Nanisetty",
-
-  keywords:
-    "Best Neuro Doctor in Kondapur,Best Neurology Doctor in Kondapur,Brain Specialist Hospital in Kondapur,Brain Specialist in kondapur,Neurologist in kondapur Hyderabad,Best Neurologist in kondapur,Brain Stroke Specialist in Kondapur,Top Neurologist in Kondapur,top Neurologist in Gandipet ,Stroke Specialist Doctor in Gandipet,Best Neurology Hospitals in Kokapet,Best Neurologists In Kokapet",
-
-  description:
-    "Dr. Sandesh Nanisetty Best Neurology Doctor in Kondapur, Hyderabad. Book an appointment with best Neurologist in Kondapur, the best hospitals in Hyderabad",
-};
-
 const Page = () => {
   const router = useRouter();
   const { data: session, status } = useSession();
@@ -48,12 +38,27 @@ const Page = () => {
     router.push("/profile");
   };
 
+  const {
+    data: meta,
+    error1,
+    isValidating,
+  } = useSWR("/api/home/blogs", async (url) => {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    return response.json();
+  });
+
+  if (error1) return <div>Error: {error1.message}</div>;
+  if (!meta || isValidating) return <div>Loading...</div>; // Render loading message if data is not available or if SWR is validating
+
   return (
     <>
       <head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+        <meta name="keywords" content={meta.keywords} />
         <link
           rel="canonical"
           href="https://www.drsandeshneurologist.com/blogs"
