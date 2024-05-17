@@ -67,8 +67,6 @@ const Page = () => {
         />
       </head>
 
-      <h1>{meta.title}</h1>
-
       <div className="container">
         <br />
         <div className={style.blogheading}>
@@ -103,7 +101,6 @@ const Page = () => {
         </div>
         <br />
       </div>
-
       <Blogs />
       <br />
       <Timeline />
@@ -112,7 +109,6 @@ const Page = () => {
       <br />
       <Service />
       <br />
-
       <Modal size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add New Blog</Modal.Title>
