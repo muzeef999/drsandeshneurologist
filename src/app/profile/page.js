@@ -107,19 +107,20 @@ const Page = () => {
             &nbsp;Home seo
           </button>
           <button
-            onClick={() => handleShowseo("service")}
-            className={style.blogbuttonseo}
-          >
-            <FaMeta />
-            &nbsp;service seo
-          </button>
-          <button
             onClick={() => handleShowseo("blogs")}
             className={style.blogbuttonseo}
           >
             <FaMeta />
             &nbsp;blogs seo
           </button>
+          <button
+            onClick={() => handleShowseo("service")}
+            className={style.blogbuttonseo}
+          >
+            <FaMeta />
+            &nbsp;service seo
+          </button>
+
           <button
             onClick={() => handleShowseo("contact")}
             className={style.blogbuttonseo}

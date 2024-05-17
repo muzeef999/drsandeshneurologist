@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import Blogs from "../component/Blogs";
 import Qulification from "../component/Qulification";
@@ -6,17 +7,16 @@ import Service from "../component/Service";
 import Contact from "../contactus/page";
 import "../styles/text.css";
 import axios from "axios";
-import { MdAdd } from "react-icons/md";
 import style from "@/app/profile/post.module.css";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Modal } from "react-bootstrap";
-
 import Link from "next/link";
 import useSWR from "swr";
 import dynamic from "next/dynamic";
 import Timeline from "../component/Timeline";
 import Image from "next/image";
+
 const PostCreate = dynamic(() => import("../component/(post)/PostCreate"), {
   ssr: false,
 });
@@ -40,7 +40,7 @@ const Page = () => {
 
   const {
     data: meta,
-    error1,
+    error: metaError,
     isValidating,
   } = useSWR("/api/home/blogs", async (url) => {
     const response = await fetch(url);
@@ -50,7 +50,9 @@ const Page = () => {
     return response.json();
   });
 
-  if (error1) return <div>Error: {error1.message}</div>;
+  console.log(meta && meta.title);
+
+  if (metaError) return <div>Error: {metaError.message}</div>;
   if (!meta || isValidating) return <div>Loading...</div>; // Render loading message if data is not available or if SWR is validating
 
   return (
@@ -61,9 +63,11 @@ const Page = () => {
         <meta name="keywords" content={meta.keywords} />
         <link
           rel="canonical"
-          href="https://www.drsandeshneurologist.com/blogs"
+          href="https://www.drsandeshneurologist.com/contactus"
         />
       </head>
+
+      <h1>{meta.title}</h1>
 
       <div className="container">
         <br />
@@ -84,7 +88,7 @@ const Page = () => {
                     alt="doctor"
                     width={100}
                     height={100}
-                  />{" "}
+                  />
                 </Link>
                 <div style={{ textAlign: "justify", fontSize: "15px" }}>
                   {/* Render the first heading separately */}
@@ -108,7 +112,6 @@ const Page = () => {
       <br />
       <Service />
       <br />
-      <Contact />
 
       <Modal size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
