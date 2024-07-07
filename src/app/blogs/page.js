@@ -38,7 +38,6 @@ const Page = () => {
     router.push("/profile");
   };
 
-<<<<<<< HEAD
   // const {
   //   data: meta,
   //   error1,
@@ -53,29 +52,10 @@ const Page = () => {
 
   // if (error1) return <div>Error: {error1.message}</div>;
   // if (!meta || isValidating) return <div>Loading...</div>; // Render loading message if data is not available or if SWR is validating
-=======
-  const {
-    data: meta,
-    error: metaError,
-    isValidating,
-  } = useSWR("/api/home/blogs", async (url) => {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Failed to fetch data");
-    }
-    return response.json();
-  });
-
-  console.log(meta && meta.title);
-
-  if (metaError) return <div>Error: {metaError.message}</div>;
-  if (!meta || isValidating) return <div>Loading...</div>; // Render loading message if data is not available or if SWR is validating
->>>>>>> 1aa8044dce791e3b02ae3f41e98b9bbbf9dabcf1
 
   return (
     <>
       <head>
-<<<<<<< HEAD
         <title>Brain Specialist in Gachibowli | Dr. Sandesh Nanisetty</title>
         <meta
           name="description"
@@ -85,11 +65,6 @@ const Page = () => {
           name="keywords"
           content="Brain Specialist Doctor in Gachibowli,Best Neuro Physician in Gachibowli, Best Neurology Doctor in Gachibowli, Brain Specialist Hospital in Hyderabad Gachibowli, Neurologist in kondapur Hyderabad, Top Neurologist in Kondapur, Brain Stroke Specialist in Kondapur, Top Neurologist in Kondapur, Top Neurologist in Gandipet, Brain Stroke Specialist Doctor in Gandipet"
         />
-=======
-        <title>{meta.title}</title>
-        <meta name="description" content={meta.description} />
-        <meta name="keywords" content={meta.keywords} />
->>>>>>> 1aa8044dce791e3b02ae3f41e98b9bbbf9dabcf1
         <link
           rel="canonical"
           href="https://www.drsandeshneurologist.com/contactus"

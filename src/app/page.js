@@ -40,7 +40,6 @@ export default function Home() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-<<<<<<< HEAD
   // const {
   //   data: meta,
   //   error,
@@ -55,15 +54,10 @@ export default function Home() {
 
   // if (error) return <div>Error: {error.message}</div>;
   // if (!meta || isValidating) return <div>Loading...</div>; // Render loading message if data is not available or if SWR is validating
-=======
-  if (error) return <div>Error: {error.message}</div>;
-  if (!meta || isValidating) return <div>Loading...</div>; // Render loading message if data is not available or if SWR is validating
->>>>>>> 1aa8044dce791e3b02ae3f41e98b9bbbf9dabcf1
 
   return (
     <>
       <head>
-<<<<<<< HEAD
         <title>
           {" "}
           Neurology Doctor in Manikonda | Neurologist in Hyderabad | Dr. Sandesh
@@ -77,11 +71,6 @@ export default function Home() {
           name="keywords"
           content="Neurologist in Gachibowli, Brain Specialist Doctor in Manikonda, Best Neurologist in Manikonda, Best Neurology Hospital in Hyderabad, Best Neuro Hospital in Gachibowli, Neurology doctor in Gachibowli, Brain Specialist Doctor in Hyderabad Gachibowli."
         />
-=======
-        <title>{meta.title}</title>
-        <meta name="description" content={meta.description} />
-        <meta name="keywords" content={meta.keywords} />
->>>>>>> 1aa8044dce791e3b02ae3f41e98b9bbbf9dabcf1
         <link rel="canonical" href="https://www.drsandeshneurologist.com/" />
       </head>
 
