@@ -2,7 +2,7 @@
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation"; // Correct import
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "@/app/profile/post.module.css";
 import { MdAdd } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
@@ -13,6 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from "react-bootstrap/Modal";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { FaMeta } from "react-icons/fa6";
 
 const PostCreate = dynamic(() => import("../component/(post)/PostCreate"), {
   ssr: false,
@@ -38,6 +39,25 @@ const Page = () => {
   const handleCloseBlog = () => setShowBlog(false);
   const handleShowBlog = () => setShowBlog(true);
 
+  const [showseo, setShowseo] = useState(false);
+
+  const [modalTitle, setModalTitle] = useState("");
+
+  const handleCloseseo = () => setShowseo(false);
+
+  const handleShowseo = (title) => {
+    setModalTitle(title);
+    setShowseo(true);
+  };
+
+  const fetcher = (url) => axios.get(url).then((res) => res);
+
+  const {
+    data: post,
+    isLoading,
+    error,
+  } = useSWR(showseo ? `/api/home/${modalTitle}` : null, fetcher); // Only execute API request when showseo is true
+
   // Import useSWR dynamically to use it only on the client-side
   const { data: updatedPosts, mutate } = useSWR("/api/posts", async () => {
     const res = await axios.get("/api/posts");
@@ -59,12 +79,58 @@ const Page = () => {
     }
   };
 
+  const handleUpdate = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const { title, description, keywords } = Object.fromEntries(
+      formData.entries()
+    );
+    await fetch(`/api/home/${modalTitle}`, {
+      method: "PUT",
+      body: JSON.stringify({ title, description, keywords }),
+      headers: { "Content-Type": "application/json" },
+    });
+    mutate();
+    window.location.reload(); // Add this line to reload the window
+  };
+
   return (
     <div>
       <ToastContainer />
       <div className="container">
+        <div>
+          <button
+            onClick={() => handleShowseo("home")}
+            className={style.blogbuttonseo}
+          >
+            <FaMeta />
+            &nbsp;Home seo
+          </button>
+          <button
+            onClick={() => handleShowseo("blogs")}
+            className={style.blogbuttonseo}
+          >
+            <FaMeta />
+            &nbsp;blogs seo
+          </button>
+          <button
+            onClick={() => handleShowseo("service")}
+            className={style.blogbuttonseo}
+          >
+            <FaMeta />
+            &nbsp;service seo
+          </button>
+
+          <button
+            onClick={() => handleShowseo("contact")}
+            className={style.blogbuttonseo}
+          >
+            <FaMeta />
+            &nbsp;contact seo
+          </button>
+        </div>
         <div className={style.blogheading}>
-          <div className="service_head">Profile</div>
+          <div className="service_head"></div>
           <div>
             <button className={style.blogbutton} onClick={handleShowBlog}>
               <MdAdd /> &nbsp; Add New Blog{" "}
@@ -130,6 +196,45 @@ const Page = () => {
         <Modal.Body>
           <PostCreate />
         </Modal.Body>
+      </Modal>
+
+      <Modal show={showseo} onHide={handleCloseseo} animation={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            <FaMeta /> &nbsp;{modalTitle}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : (
+            <form onSubmit={handleUpdate}>
+              <label>Title</label>
+              <textarea
+                type="text"
+                name="title"
+                defaultValue={post && post.data.title}
+              />
+              <label>Description</label>
+              <textarea
+                name="description"
+                defaultValue={post && post.data.description}
+              ></textarea>
+              <label>keywords</label>
+              <textarea
+                type="text"
+                name="keywords"
+                defaultValue={post && post.data.keywords}
+              />
+              <br />
+              <button type="submit" className="form-button">
+                Update Meta Tag
+              </button>
+            </form>
+          )}
+          <br />
+        </Modal.Body>
+        <Modal.Footer></Modal.Footer>
       </Modal>
     </div>
   );

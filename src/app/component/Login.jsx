@@ -2,9 +2,9 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { toast } from "react-hot-toast";
 import "../styles/auth.css"
 import { signIn, useSession } from "next-auth/react";
+import { toast } from "react-toastify";
 
 
 const Login = () => {
@@ -35,6 +35,7 @@ const Login = () => {
         setLoading(false);
         return;
       }
+      
       toast.success("Login success");
     
       window.location.href = "/";

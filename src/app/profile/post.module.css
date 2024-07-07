@@ -24,6 +24,21 @@
     background-color:#27b9ec ;
 }
 
+.blogbuttonseo{
+    float: inline-start;
+    background-color: #FFF;
+    color: #27b9ec;
+    border: 1px solid #27b9ec;
+    border-radius: 12px;
+    padding: 8px 10px !important;
+    font-size: 14px;
+    margin: 14px;
+}
+.blogbuttonseo:hover{
+    color: #FFF;
+    background-color:#27b9ec ;
+}
+
 .recentblogbox{
     display: flex;
     border-radius: 12px;
