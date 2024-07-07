@@ -3,7 +3,7 @@ import Image from "next/image";
 import Service from "./component/Service";
 import Doctor from "../asserts/doctor.webp";
 import Qulification from "./component/Qulification";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./styles/text.css";
@@ -17,16 +17,10 @@ import Video from "./component/InstagramVideo";
 import InstagramVideo from "./component/InstagramVideo";
 import Loading from "./component/Loading";
 import Timeline from "./component/Timeline";
+import axios from "axios";
+import useSWR from "swr";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const metadata = {
-  title: "Best Neuro Physician in Gachibowli | Dr. Sandesh Nanisetty",
-  description:
-    "Dr. Sandesh Nanisetty is the Best Neuro Physician in Gachibowli, practising as a Consultant Neuro Physician Arete Hospitals, Gachibowli and Freedom Hospital, Gandipet.",
-  keywords:
-    "Top 3 Neurologist in Gachibowli , Best Neuro Doctor in Gachibowli,Best Neurology Doctor in Hyderabad,best neurologist in gachibowli,Best Neuro Physician Doctor in Gachibowli,Best Neurologists in Gachibowli,Best Neurology Hospitals in Gachibowli,Top Neurologist in Gachibowli,Brain Specialist Doctor in Gachibowli,Best Doctors for Meningitis Treatment in Gachibowli",
-};
 
 export default function Home() {
   const [show, setShow] = useState(false);
@@ -34,12 +28,37 @@ export default function Home() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  // const {
+  //   data: meta,
+  //   error,
+  //   isValidating,
+  // } = useSWR("/api/home/home", async (url) => {
+  //   const response = await fetch(url);
+  //   if (!response.ok) {
+  //     throw new Error("Failed to fetch data");
+  //   }
+  //   return response.json();
+  // });
+
+  // if (error) return <div>Error: {error.message}</div>;
+  // if (!meta || isValidating) return <div>Loading...</div>; // Render loading message if data is not available or if SWR is validating
+
   return (
     <>
       <head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
+        <title>
+          {" "}
+          Neurology Doctor in Manikonda | Neurologist in Hyderabad | Dr. Sandesh
+          Nanisetty
+        </title>
+        <meta
+          name="description"
+          content="Dr. Sandesh Nanisetty has specialist for Neurologist in Manikonda, Gachibowli. He is Brain Specialist Doctor in Manikonda."
+        />
+        <meta
+          name="keywords"
+          content="Neurologist in Gachibowli, Brain Specialist Doctor in Manikonda, Best Neurologist in Manikonda, Best Neurology Hospital in Hyderabad, Best Neuro Hospital in Gachibowli, Neurology doctor in Gachibowli, Brain Specialist Doctor in Hyderabad Gachibowli."
+        />
         <link rel="canonical" href="https://www.drsandeshneurologist.com/" />
       </head>
 
