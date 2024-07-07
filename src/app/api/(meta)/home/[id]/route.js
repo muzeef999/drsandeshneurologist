@@ -12,8 +12,6 @@ export const GET = async (request, { params }) => {
     return new NextResponse("Database Error" + err.message, { status: 500 });
   }
 };
-<<<<<<< HEAD
-=======
 
 export const PUT = async (request, { params }) => {
   const { id } = params;
@@ -31,4 +29,3 @@ export const PUT = async (request, { params }) => {
     );
   }
 };
->>>>>>> 1aa8044dce791e3b02ae3f41e98b9bbbf9dabcf1
