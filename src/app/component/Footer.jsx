@@ -41,7 +41,7 @@ const Footer = () => {
                 <a href={"mailto:drsandeshnanisetty@gmail.com"} style={{textDecoration:'none', color:"#FFF"}}>
                 <p>drsandeshnanisetty@gmail.com</p>
                 </a>
-                <a href={"tel:+917663000999"} style={{textDecoration:'none', color:"#FFF"}}>
+                <a href={"tel:+918875988749"} style={{textDecoration:'none', color:"#FFF"}}>
                 <p>+91&nbsp;7663&nbsp;000&nbsp;999</p>
                 </a>
               </div>
@@ -82,7 +82,7 @@ const Footer = () => {
         </div>
       </div>
       <FloatingWhatsApp
-    phoneNumber="+917663000999"
+    phoneNumber="+918875988749"
     accountName="Dr. Sandesh Nanisetty"
 
     notification
