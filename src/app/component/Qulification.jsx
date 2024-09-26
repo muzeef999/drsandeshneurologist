@@ -39,7 +39,7 @@ const Qulification = () => {
           <div>
             <p className="qualifactionp">
               Dr Sandesh Nanisetty is a highly skilled and dedicated Consultant
-              in Neurology, currently serving at Care Hospitals, Banjara Hillsand
+              in Neurology, currently serving at Care Hospitals, Banjara Hills and
               Freedom Hospital, Gandipet. With a distinguished educational
               background, he attained his MBBS from Jawaharlal Nehru Medical
               College, KLE University. Dr Sandesh Nanisetty further pursued and

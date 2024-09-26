@@ -22,46 +22,19 @@ import useSWR from "swr";
 
 gsap.registerPlugin(ScrollTrigger);
 
+
+
 export default function Home() {
   const [show, setShow] = useState(false);
 
-  const {
-    data: meta,
-    error,
-    isValidating,
-  } = useSWR("/api/home/home", async (url) => {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Failed to fetch data");
-    }
-    return response.json();
-  });
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  // const {
-  //   data: meta,
-  //   error,
-  //   isValidating,
-  // } = useSWR("/api/home/home", async (url) => {
-  //   const response = await fetch(url);
-  //   if (!response.ok) {
-  //     throw new Error("Failed to fetch data");
-  //   }
-  //   return response.json();
-  // });
-
-  // if (error) return <div>Error: {error.message}</div>;
-  // if (!meta || isValidating) return <div>Loading...</div>; // Render loading message if data is not available or if SWR is validating
 
   return (
     <>
       <head>
         <title>
-          {" "}
-          Neurology Doctor in Manikonda | Neurologist in Hyderabad | Dr. Sandesh
-          Nanisetty
+        Best Neuro Physician in Gachibowli | Neurologist in Hyderabad | Dr. Sandesh Nanisetty
         </title>
         <meta
           name="description"

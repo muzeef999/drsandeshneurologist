@@ -122,7 +122,7 @@ const Timeline = () => {
     • Arete Hospitals, Hyderabad
   </text>
   <text x="100" y="160" font-size="20" font-family="Arial" fill="black">
-    • Care Hospitals, Banjara Hills
+    • Care Hospitals, Banjara Hills, Hyderabad 
   </text>
 
 

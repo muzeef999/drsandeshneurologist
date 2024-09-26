@@ -42,7 +42,7 @@ const Footer = () => {
                 <p>drsandeshnanisetty@gmail.com</p>
                 </a>
                 <a href={"tel:+918875988749"} style={{textDecoration:'none', color:"#FFF"}}>
-                <p>+91&nbsp;7663&nbsp;000&nbsp;999</p>
+                <p>+91&nbsp;8875 &nbsp;988&nbsp;749</p>
                 </a>
               </div>
               <div>
