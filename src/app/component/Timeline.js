@@ -51,7 +51,7 @@ const Timeline = () => {
               <div className="test_scroll">
                 <div className="container team-ache">
                 <svg id="svg_id" viewBox="0 0 3628 565" fill="none">
- <rect x="2275" y="19" width="626" height="182" rx="9" fill="#f2f2f2" />
+ <rect x="2375" y="19" width="626" height="182" rx="9" fill="#f2f2f2" />
   <rect x="1975" y="348" width="626" height="182" rx="9" fill="#f2f2f2" />
   <rect x="1635" y="19" width="626" height="182" rx="9" fill="#f2f2f2" />
   <rect x="1189" y="348" width="626" height="182" rx="9" fill="#f2f2f2" />
@@ -59,7 +59,7 @@ const Timeline = () => {
   <rect x="339" y="348" width="626" height="182" rx="9" fill="#f2f2f2" />
   <rect x="27" y="19" width="626" height="182" rx="9" fill="#f2f2f2" />
 
-  <text x="2336" y="80" font-size="20" font-family="Arial" fill="black">
+  <text x="2436" y="80" font-size="20" font-family="Arial" fill="black">
     • March 2013 - March 2014
   </text>
   <text x="2036" y="400" font-size="20" font-family="Arial" fill="black">
@@ -81,7 +81,7 @@ const Timeline = () => {
     • Sep 2024 - present
   </text>
   
-  <text x="2336" y="120" font-size="20" font-family="Arial" fill="#27b9ec" font-weight="bold">
+  <text x="2436" y="120" font-size="20" font-family="Arial" fill="#27b9ec" font-weight="bold">
     • Compulsory Rotatory Internship
   </text>
   <text x="2036" y="440" font-size="20" font-family="Arial" fill="#27b9ec" font-weight="bold">
@@ -103,7 +103,7 @@ const Timeline = () => {
     • Consultant (Neurology)
   </text>
 
-  <text x="2336" y="160" font-size="20" font-family="Arial" fill="black">
+  <text x="2436" y="160" font-size="20" font-family="Arial" fill="black">
     • KLE's Dr Prabhakar Kore Hospital, Belgaum, Karnataka
   </text>
   <text x="2036" y="480" font-size="20" font-family="Arial" fill="black">
@@ -126,21 +126,27 @@ const Timeline = () => {
   </text>
 
 
+  <rect x="2375" y="19" width="40" height="182" fill="#27B9EC" />
+  <path id="Vector11" d="M2646 201L2646 293" stroke="black" stroke-width="2" />
+
   <rect x="1975" y="348" width="40" height="182" fill="#27B9EC" />
   <path id="Vector9" d="M2233 293V348" stroke="black" stroke-width="2" />
-  <rect x="1975" y="348" width="40" height="182" fill="#27B9EC" />
-  <path id="Vector9" d="M2233 293V348" stroke="black" stroke-width="2" />
+
   <rect x="1635" y="19" width="40" height="182" fill="#27B9EC" />
   <path id="Vector10" d="M1996 201L1996 293" stroke="black" stroke-width="2" />
+
   <rect x="1189" y="348" width="40" height="182" fill="#27B9EC" />
   <path id="Vector8" d="M1470 294L1470 348" stroke="black" stroke-width="2" />
+
   <rect x="849" y="19" width="40" height="182" fill="#27B9EC" />
   <path id="Vector13" d="M1164.5 201V292.5" stroke="black" stroke-width="2" />
+
   <rect x="339" y="348" width="40" height="182" fill="#27B9EC" />
   <path id="Vector7" d="M623 293V347.5" stroke="black" stroke-width="2" />
   <rect x="27" y="19" width="40" height="182" fill="#27B9EC" />
   <path id="line" d="M254.5 293L253 201" stroke="black" stroke-width="2" />
-  <path id="EXLINE" d="M255 292.5L2235 294" stroke="black" stroke-width="2" />
+
+  <path id="EXLINE" d="M255 292.5L2649 294" stroke="black" stroke-width="2" />
 </svg>
 
                 </div>
